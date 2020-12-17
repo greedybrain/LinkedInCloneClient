@@ -25,6 +25,7 @@ input {
   height: 100%;
   border: none;
   outline: none;
+  background-color: transparent;
 }
 
 button {
