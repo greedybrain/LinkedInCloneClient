@@ -1,5 +1,5 @@
 //! Core Modules
-import React from 'react'
+import React, { useState } from 'react'
 
 //! Custom Modules / Components
 import DivWithInput from '../Common/DivWithInput'
@@ -7,6 +7,10 @@ import Icon from '../Common/Icon'
 import '../Styles/SearchBar.css'
 
 const SearchBar = () => {
+        const [inputValue, setInputValue] = useState("")
+        
+        const handleChange = event => setInputValue(event.target.value)
+        
         return (
                 <div className="search_bar_wrapper">
                         <form>
@@ -17,9 +21,10 @@ const SearchBar = () => {
                                                 inputType="search" 
                                                 inputName="search" 
                                                 inputPlaceholder="Search" 
-                                                inputValue={null} 
-                                                inputeRequired={true} 
+                                                inputValue={inputValue}
+                                                inputRequired={true} 
                                                 focus={true} 
+                                                handleChange={handleChange}
                                         />
                                 </div>
                         </form>
