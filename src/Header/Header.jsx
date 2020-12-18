@@ -5,6 +5,7 @@ import React, { Component } from 'react'
 import Logo from './Logo'
 import Navbar from './Navbar'
 import SearchBar from './SearchBar'
+import '../Styles/Header.css'
 
 export default class Header extends Component {
         render() {
