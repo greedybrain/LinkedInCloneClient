@@ -1,6 +1,6 @@
-div.search_bar_wrapper {     
-        width: 21.5%;
-        height: 35px;
+div.search_bar_wrapper { 
+        width: 225px;
+        height: 30px;
 
         form {
                 height: 100%;
@@ -15,9 +15,9 @@ div.search_bar_wrapper {
                         div.icon_wrapper {
                                 display: flex;
                                 align-items: center;
-                                width: 10%;
+                                // width: 15%;
                                 height: 100%;
-                                padding: 0 5px 0 10px;
+                                padding: 0 0 0 10px;
 
                                 i {
                                         font-size: .7rem;
@@ -26,7 +26,7 @@ div.search_bar_wrapper {
                         }
 
                         div.search {
-                                width: 90%;
+                                width: 100%;
                                 input {
                                         padding-left: 5px;
                                         border-radius: 0 4px 4px 0;

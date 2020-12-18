@@ -1,6 +1,6 @@
 div.search_bar_wrapper {
-  width: 21.5%;
-  height: 35px;
+  width: 225px;
+  height: 30px;
 }
 
 div.search_bar_wrapper form {
@@ -27,9 +27,8 @@ div.search_bar_wrapper form div.search_icon_and_input div.icon_wrapper {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 10%;
   height: 100%;
-  padding: 0 5px 0 10px;
+  padding: 0 0 0 10px;
 }
 
 div.search_bar_wrapper form div.search_icon_and_input div.icon_wrapper i {
@@ -38,7 +37,7 @@ div.search_bar_wrapper form div.search_icon_and_input div.icon_wrapper i {
 }
 
 div.search_bar_wrapper form div.search_icon_and_input div.search {
-  width: 90%;
+  width: 100%;
 }
 
 div.search_bar_wrapper form div.search_icon_and_input div.search input {
