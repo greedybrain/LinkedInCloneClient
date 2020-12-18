@@ -1,5 +1,6 @@
 //! Core Modules
 import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom'
 
 //! Custom Modules / Components
 import Icon from '../Common/Icon'
@@ -42,41 +43,70 @@ class Navbar extends Component {
                 return (
                         <nav className="main_nav">
                                 <ul>
-                                        <li className="nav_item home_icon">
-                                                {
-                                                        homeClicked 
-                                                        ? <Icon name="fas fa-house-user" navItemClicked={this.handleHomeClick} />
-                                                        : <Icon name="fas fa-home" navItemClicked={this.handleHomeClick} />
-                                                }
-                                        </li>
-                                        <li className="nav_item network_icon">
-                                                {
-                                                        networkClicked
-                                                        ? <Icon name="fas fa-user-friends" navItemClicked={this.handleNetworkClick} theseStyles={this.networkTabStyles} />
-                                                        : <Icon name="fas fa-user-friends" navItemClicked={this.handleNetworkClick} />
-                                                }
-                                        </li>
-                                        <li className="nav_item jobs_icon">
-                                                {
-                                                        jobsClicked
-                                                        ? <Icon name="fas fa-business-time" navItemClicked={this.handleJobsClick} />
-                                                        : <Icon name="fas fa-briefcase" navItemClicked={this.handleJobsClick}  />
-                                                }
-                                        </li>
-                                        <li className="nav_item messaging_icon">
-                                                {
-                                                        messagesClicked
-                                                        ? <Icon name="fas fa-comments" navItemClicked={this.handleMessagesClick} />
-                                                        : <Icon name="fas fa-comment-dots" navItemClicked={this.handleMessagesClick}  /> 
-                                                }
-                                        </li>
-                                        <li className="nav_item notifications_icon">
-                                                {
-                                                        notificationsClicked
-                                                        ? <Icon name="fas fa-bell" navItemClicked={this.handleNotificationsClick} theseStyles={this.notificationsTabStyles} />
-                                                        : <Icon name="fas fa-bell" navItemClicked={this.handleNotificationsClick} />
-                                                }
-                                        </li>
+                                        <NavLink to="/" onClick={this.handleHomeClick} style={homeClicked ? { color: "#000" } : null}>
+                                                <li 
+                                                        className="nav_item home_icon" 
+                                                        style={homeClicked ? { borderBottom: '2px solid #000' } : null}
+                                                >
+                                                        {
+                                                                homeClicked 
+                                                                ? <Icon name="fas fa-house-user" />
+                                                                : <Icon name="fas fa-home" />
+                                                        }
+                                                        <div className="nav_item_name" >
+                                                                Home
+                                                        </div>
+                                                </li>
+                                        </NavLink>
+                                        <NavLink to='/my-network' onClick={this.handleNetworkClick} style={networkClicked ? { color: "#000" } : null}>
+                                                <li className="nav_item network_icon" style={networkClicked ? { borderBottom: '2px solid #000' } : null}>
+                                                        {
+                                                                networkClicked
+                                                                ? <Icon name="fas fa-user-friends" theseStyles={this.networkTabStyles} />
+                                                                : <Icon name="fas fa-user-friends" />
+                                                        }
+                                                        <div className="nav_item_name">
+                                                                My Network
+                                                        </div>
+                                                </li>
+                                        </NavLink>
+                                        <NavLink to="/jobs" onClick={this.handleJobsClick} style={jobsClicked ? { color: "#000" } : null}>
+                                                <li className="nav_item jobs_icon" style={jobsClicked ? { borderBottom: '2px solid #000' } : null}>
+                                                        {
+                                                                jobsClicked
+                                                                ? <Icon name="fas fa-business-time" />
+                                                                : <Icon name="fas fa-briefcase" />
+                                                                
+                                                        }
+                                                        <div className="nav_item_name" >
+                                                                Jobs
+                                                        </div>
+                                                </li>
+                                        </NavLink>
+                                        <NavLink to="/messaging" onClick={this.handleMessagesClick} style={messagesClicked ? { color: "#000" } : null}>
+                                                <li className="nav_item messaging_icon" style={messagesClicked ? { borderBottom: '2px solid #000' } : null}>
+                                                        {
+                                                                messagesClicked
+                                                                ? <Icon name="fas fa-comments" />        
+                                                                : <Icon name="fas fa-comment-dots"  /> 
+                                                        }
+                                                        <div className="nav_item_name" >
+                                                                Messaging
+                                                        </div>
+                                                </li>
+                                        </NavLink>
+                                        <NavLink to="/notifications" onClick={this.handleNotificationsClick} style={notificationsClicked ? { color: "#000" } : null}>
+                                                <li className="nav_item notifications_icon" style={notificationsClicked ? { borderBottom: '2px solid #000' } : null}>
+                                                        {
+                                                                notificationsClicked
+                                                                ? <Icon name="fas fa-bell" theseStyles={this.notificationsTabStyles} />
+                                                                : <Icon name="fas fa-bell" />
+                                                        }
+                                                        <div className="nav_item_name" >
+                                                                Notifications
+                                                        </div>
+                                                </li>
+                                        </NavLink>
                                 </ul>
                         </nav>
                 )
