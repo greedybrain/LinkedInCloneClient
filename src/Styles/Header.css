@@ -1,1 +1,26 @@
-/* No CSS */
+header.main_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 8%;
+  border-bottom: 1px solid #eee;
+}
+
+header.main_header div.logo_and_search_bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header.main_header div.logo_and_search_bar div.logo_wrapper {
+  margin-right: 5px;
+}

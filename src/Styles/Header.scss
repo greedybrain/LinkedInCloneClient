@@ -1,0 +1,15 @@
+header.main_header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 8%;
+        border-bottom: 1px solid #eee;
+        div.logo_and_search_bar {
+                display: flex;
+                align-items: center;
+
+                div.logo_wrapper {
+                        margin-right: 5px;
+                }
+        }
+}
