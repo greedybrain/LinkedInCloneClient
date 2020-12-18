@@ -1,4 +1,5 @@
 div.logo_wrapper i {
-  font-size: 2rem;
+  display: block;
+  font-size: 2.1rem;
   color: #0a66c2;
 }
