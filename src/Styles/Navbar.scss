@@ -1,8 +1,30 @@
 nav.main_nav {
         ul {
-                li.nav_item {
-                        i {
-                                color: #00000099;
+                display: flex;
+                a {
+                        color: #00000099;
+
+                        &:active {
+                                li.nav_item {
+                                        div.icon_wrapper {
+                                                transform: scale(1.1);
+                                        }
+                                }
+                        }
+
+                        li.nav_item {
+                                display: flex;
+                                align-items: center;
+                                flex-direction: column;
+                                margin-left: 15px;
+                                width: 70px;
+                                // border-bottom: 2px solid #000;
+                                padding: 5px 0;
+        
+        
+                                div.nav_item_name {
+                                        font-size: .7rem;
+                                }
                         }
                 }
         }
