@@ -8,8 +8,9 @@ import '../Styles/SearchBar.css'
 
 const SearchBar = () => {
         const [inputValue, setInputValue] = useState("")
-        
         const handleChange = event => setInputValue(event.target.value)
+        const handleFocus = ({ target }) => target.style.paddingLeft = "15px"
+        const handleBlur = ({ target }) => target.style.paddingLeft = "5px"
         
         return (
                 <div className="search_bar_wrapper">
@@ -18,13 +19,15 @@ const SearchBar = () => {
                                         <Icon name="fas fa-search" />
                                         <DivWithInput 
                                                 specialClass="search" 
-                                                inputType="search" 
+                                                inputType="text" 
                                                 inputName="search" 
                                                 inputPlaceholder="Search" 
                                                 inputValue={inputValue}
                                                 inputRequired={true} 
-                                                focus={true} 
+                                                focus={false} 
                                                 handleChange={handleChange}
+                                                handleFocus={handleFocus}
+                                                handleBlur={handleBlur}
                                         />
                                 </div>
                         </form>
