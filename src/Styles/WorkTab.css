@@ -1,0 +1,39 @@
+div.work_tab_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2px 0;
+}
+
+div.work_tab_wrapper div.work_tab_lower {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.work_tab_wrapper div.work_tab_lower div.work {
+  font-size: .7rem;
+  margin-right: 2px;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.work_tab_wrapper div.work_tab_lower div.drop_down_arrow {
+  font-size: 1.1rem;
+  padding-bottom: 3px;
+}
