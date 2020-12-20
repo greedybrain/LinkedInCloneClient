@@ -1,0 +1,7 @@
+div.home_page_wrapper {
+  height: 92.9vh;
+  background-color: #eee;
+  overflow-y: scroll;
+  position: relative;
+  z-index: 99;
+}
