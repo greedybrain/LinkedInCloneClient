@@ -5,6 +5,9 @@ import { NavLink } from 'react-router-dom'
 //! Custom Modules / Components
 import Icon from '../Common/Icon'
 import '../Styles/Navbar.css'
+import TryPremium from './TryPremium'
+import UserTab from './UserTab'
+import WorkTab from './WorkTab'
 class Navbar extends Component {
         state = {
                 homeClicked: true,
@@ -105,6 +108,21 @@ class Navbar extends Component {
                                                         <div className="nav_item_name" >
                                                                 Notifications
                                                         </div>
+                                                </li>
+                                        </NavLink>
+                                        <NavLink to="#">        
+                                                <li className="nav_item user_tab">
+                                                        <UserTab />
+                                                </li>
+                                        </NavLink>
+                                        <NavLink to="#">
+                                                <li className="nav_item work_tab">
+                                                        <WorkTab />
+                                                </li>
+                                        </NavLink>
+                                        <NavLink to="#">
+                                                <li className="nav_item try_premium_tab">
+                                                        <TryPremium />
                                                 </li>
                                         </NavLink>
                                 </ul>
