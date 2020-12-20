@@ -8,8 +8,14 @@ header.main_header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 0 8%;
+  height: 6vh;
+  min-height: 50px;
+  padding: 0 4%;
   border-bottom: 1px solid #eee;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 header.main_header div.logo_and_search_bar {

@@ -2,8 +2,13 @@ header.main_header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 8%;
+        height: 6vh;
+        min-height: 50px;
+        padding: 0 4%;
         border-bottom: 1px solid #eee;
+        position: sticky;
+        top: 0;
+        z-index: 100;
         div.logo_and_search_bar {
                 display: flex;
                 align-items: center;
