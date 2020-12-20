@@ -1,0 +1,24 @@
+div.user_tab_wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2px 0;
+        
+        div.user_tab_lower {
+                display: flex;
+                align-items: center;
+
+                div.me {
+                        font-size: .7rem;
+                        margin-right: 2px;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                }
+
+                div.drop_down_arrow {
+                        font-size: 1.1rem;
+                        padding-bottom: 3px;
+                }
+        }
+}
