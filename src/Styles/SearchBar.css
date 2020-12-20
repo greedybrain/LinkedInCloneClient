@@ -1,5 +1,5 @@
 div.search_bar_wrapper {
-  width: 225px;
+  width: 250px;
   height: 30px;
 }
 
@@ -36,11 +36,11 @@ div.search_bar_wrapper form div.search_icon_and_input div.icon_wrapper i {
   color: #00000099;
 }
 
-div.search_bar_wrapper form div.search_icon_and_input div.search {
-  width: 100%;
-}
-
 div.search_bar_wrapper form div.search_icon_and_input div.search input {
   padding-left: 5px;
   border-radius: 0 4px 4px 0;
+}
+
+div.search_bar_wrapper form div.search_icon_and_input div.search input:focus {
+  padding-left: 15px;
 }
