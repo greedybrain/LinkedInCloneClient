@@ -1,0 +1,128 @@
+div.home_left_user_info_wrapper {
+        border-radius: 10px;
+        background-color: #fff;
+        border: 1px solid #dadada;
+        div.cover_image_wrapper {
+                img {
+                        border-radius: 9px 9px 0 0;
+                }
+        }
+
+        div.user_image_wrapper {
+                width: 65px;
+                border: 1px solid #ffffff;
+                border-radius: 50%;
+                padding: 1px;
+                position: relative;
+                bottom: 30px;
+                margin: 0 auto;
+                img {
+                        border-radius: 50%;
+                }
+        }
+
+        div.user_name {
+                text-align: center;
+                position: relative;
+                bottom: 4px;
+                a {
+                        color: #000;
+                        font-weight: bold;
+                }
+        }
+
+        div.user_headline {
+                color: #00000099;
+                font-size: .7rem;
+                text-align: center;
+                padding: 0 4% 10px ;
+                border-bottom: 1px solid #eee;
+        }
+        
+        div.views {
+                color: #00000099;
+                font-size: .7rem;
+                text-align: center;
+                justify-content: space-evenly;
+                font-weight: 600;
+                margin-top: 8px;
+                cursor: pointer;
+
+                div.profile,
+                div.post_views {
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 3px 4%;
+                        
+                        &:hover {
+                                background-color: #e7e7e7;
+                        }
+                }
+
+                .part_b {
+                        color: #0a66c2;
+                }
+        }
+        
+        div.tools {
+                padding: 10px 4%;
+                margin-top: 10px;
+                border-bottom: 1px solid #eee;
+                cursor: pointer;
+
+                &:hover {
+                        background-color: #e7e7e7;
+
+                        div.reactivate {
+                                color: #0a66c2;
+                        }
+
+                        div.access, 
+                        div.reactivate {
+                                text-decoration: underline;
+                        }
+                }
+                div.access {
+                        font-size: .7rem;
+                        color: #00000099;
+                }
+                div.prem {
+                        display: flex;
+                        font-size: .7rem;
+                        font-weight: 700;
+                        height: 18px;
+
+                        div.icon_wrapper {
+                                align-self: flex-start;
+                                margin-right: 6px;
+                                i {
+                                        color: rgb(253, 203, 63);
+                                }
+                        }
+
+                        div.reactivate {
+                                align-self: flex-end;
+                        }
+                }
+        }
+
+        div.my_items {
+                font-size: .7rem;
+                display: flex;
+                padding: 10px 0 10px 4%;
+                border-radius: 0 0 9px 9px;
+
+                &:hover {
+                        background-color: #e7e7e7;
+                }
+
+                div.icon_wrapper {
+                        color: #00000099;  
+                        margin-right: 6px;
+                }
+
+                div.label {
+                        font-weight: 600;
+                }
+        }
+}

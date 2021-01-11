@@ -1,0 +1,145 @@
+div.home_left_user_info_wrapper {
+  border-radius: 10px;
+  background-color: #fff;
+  border: 1px solid #dadada;
+}
+
+div.home_left_user_info_wrapper div.cover_image_wrapper img {
+  border-radius: 9px 9px 0 0;
+}
+
+div.home_left_user_info_wrapper div.user_image_wrapper {
+  width: 65px;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  padding: 1px;
+  position: relative;
+  bottom: 30px;
+  margin: 0 auto;
+}
+
+div.home_left_user_info_wrapper div.user_image_wrapper img {
+  border-radius: 50%;
+}
+
+div.home_left_user_info_wrapper div.user_name {
+  text-align: center;
+  position: relative;
+  bottom: 4px;
+}
+
+div.home_left_user_info_wrapper div.user_name a {
+  color: #000;
+  font-weight: bold;
+}
+
+div.home_left_user_info_wrapper div.user_headline {
+  color: #00000099;
+  font-size: .7rem;
+  text-align: center;
+  padding: 0 4% 10px;
+  border-bottom: 1px solid #eee;
+}
+
+div.home_left_user_info_wrapper div.views {
+  color: #00000099;
+  font-size: .7rem;
+  text-align: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  font-weight: 600;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+div.home_left_user_info_wrapper div.views div.profile,
+div.home_left_user_info_wrapper div.views div.post_views {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 3px 4%;
+}
+
+div.home_left_user_info_wrapper div.views div.profile:hover,
+div.home_left_user_info_wrapper div.views div.post_views:hover {
+  background-color: #e7e7e7;
+}
+
+div.home_left_user_info_wrapper div.views .part_b {
+  color: #0a66c2;
+}
+
+div.home_left_user_info_wrapper div.tools {
+  padding: 10px 4%;
+  margin-top: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+div.home_left_user_info_wrapper div.tools:hover {
+  background-color: #e7e7e7;
+}
+
+div.home_left_user_info_wrapper div.tools:hover div.reactivate {
+  color: #0a66c2;
+}
+
+div.home_left_user_info_wrapper div.tools:hover div.access,
+div.home_left_user_info_wrapper div.tools:hover div.reactivate {
+  text-decoration: underline;
+}
+
+div.home_left_user_info_wrapper div.tools div.access {
+  font-size: .7rem;
+  color: #00000099;
+}
+
+div.home_left_user_info_wrapper div.tools div.prem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: .7rem;
+  font-weight: 700;
+  height: 18px;
+}
+
+div.home_left_user_info_wrapper div.tools div.prem div.icon_wrapper {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-right: 6px;
+}
+
+div.home_left_user_info_wrapper div.tools div.prem div.icon_wrapper i {
+  color: #fdcb3f;
+}
+
+div.home_left_user_info_wrapper div.tools div.prem div.reactivate {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+div.home_left_user_info_wrapper div.my_items {
+  font-size: .7rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px 0 10px 4%;
+  border-radius: 0 0 9px 9px;
+}
+
+div.home_left_user_info_wrapper div.my_items:hover {
+  background-color: #e7e7e7;
+}
+
+div.home_left_user_info_wrapper div.my_items div.icon_wrapper {
+  color: #00000099;
+  margin-right: 6px;
+}
+
+div.home_left_user_info_wrapper div.my_items div.label {
+  font-weight: 600;
+}
