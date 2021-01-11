@@ -8,7 +8,7 @@ import Routes from './Routes';
 class App extends Component {
         render() {
                 return (
-                        <div className="App">
+                        <div className="App" style={{minWidth: '1100px', maxWidth: '1200px'}}>
                                 <Header />
                                 <Routes />
                         </div>
