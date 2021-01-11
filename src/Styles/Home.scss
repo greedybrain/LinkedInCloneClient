@@ -1,7 +1,12 @@
 div.home_page_wrapper {
+        padding: 0 3%;
         height: 92.9vh;
         background-color: #eee;
         overflow-y: scroll;
         position: relative;
         z-index: 99;
+
+        div.home_page_body {
+                display: flex;
+        }
 }
