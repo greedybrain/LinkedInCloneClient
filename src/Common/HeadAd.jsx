@@ -6,7 +6,7 @@ import React from 'react'
 
 const HeadAd = () => {
         return (
-                <div className="head_ad_wrapper" style={{textAlign: 'center', padding: '5px 0', cursor: 'pointer'}}>
+                <div className="head_ad_wrapper" style={{textAlign: 'center', padding: '5px 0', cursor: 'pointer', marginBottom: '10px'}}>
                         <div className="head_ad">
                                 <p style={{textDecoration: 'underline', display: 'inline-block', fontSize: '.85rem'}}>
                                         <strong>
