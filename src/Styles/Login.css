@@ -1,0 +1,170 @@
+div.login_page_wrapper {
+  height: 100vh;
+}
+
+div.login_page_wrapper div.form_area_wrapper {
+  text-align: center;
+  padding: 70px 0 0 0;
+}
+
+div.login_page_wrapper div.form_area_wrapper div.brand_name_wrapper {
+  display: inline-block;
+}
+
+div.login_page_wrapper div.form_area_wrapper div.brand_name_wrapper div.brand_name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #0a66c2;
+}
+
+div.login_page_wrapper div.form_area_wrapper div.brand_name_wrapper div.brand_name div.brand {
+  margin-right: 2px;
+}
+
+div.login_page_wrapper div.form_area_wrapper div.welcome_back_message_wrapper {
+  padding-top: 25px;
+}
+
+div.login_page_wrapper div.form_area_wrapper div.welcome_back_message_wrapper div.welcome_back_message div.message {
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+div.login_page_wrapper div.form_area_wrapper div.welcome_back_message_wrapper div.welcome_back_message p {
+  color: #00000099;
+  font-size: 0.9rem;
+}
+
+div.login_page_wrapper div.form_area_wrapper form {
+  width: 50%;
+  margin: 0 auto;
+  padding-top: 25px;
+}
+
+div.login_page_wrapper div.form_area_wrapper form div.fields {
+  border: 1px solid #00000099;
+  border-radius: 5px;
+  width: 61%;
+  height: 45px;
+  margin: 0 auto;
+}
+
+div.login_page_wrapper div.form_area_wrapper form div.fields input {
+  font-size: 1.1rem;
+  padding-left: 10px;
+  border-radius: 4px;
+}
+
+div.login_page_wrapper div.form_area_wrapper form div.fields input::-webkit-input-placeholder {
+  color: #00000099;
+}
+
+div.login_page_wrapper div.form_area_wrapper form div.fields input:-ms-input-placeholder {
+  color: #00000099;
+}
+
+div.login_page_wrapper div.form_area_wrapper form div.fields input::-ms-input-placeholder {
+  color: #00000099;
+}
+
+div.login_page_wrapper div.form_area_wrapper form div.fields input::placeholder {
+  color: #00000099;
+}
+
+div.login_page_wrapper div.form_area_wrapper form div.email_or_phone_field {
+  margin-bottom: 10px;
+}
+
+div.login_page_wrapper div.form_area_wrapper form div.password_field {
+  margin-bottom: 20px;
+}
+
+div.login_page_wrapper div.form_area_wrapper form div.submit_btn {
+  width: 61%;
+  height: 45px;
+  margin: 0 auto 25px auto;
+  border: 1px solid #00000099;
+  border-radius: 40px;
+  background-color: #0a66c2;
+}
+
+div.login_page_wrapper div.form_area_wrapper form div.submit_btn:hover {
+  background-color: #06488a;
+}
+
+div.login_page_wrapper div.form_area_wrapper form div.submit_btn button {
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+}
+
+div.login_page_wrapper div.form_area_wrapper form div.forgot_password {
+  color: #0a66c2;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+div.login_page_wrapper div.form_area_wrapper form div.if_new a {
+  color: #0a66c2;
+  font-weight: 600;
+}
+
+div.login_page_wrapper div.login_footer {
+  border-top: 1px solid #eee;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  padding: 25px 0;
+}
+
+div.login_page_wrapper div.login_footer ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+div.login_page_wrapper div.login_footer ul li {
+  font-size: 0.8rem;
+  margin-left: 20px;
+}
+
+div.login_page_wrapper div.login_footer ul li:not(:first-child) a {
+  color: #00000099;
+}
+
+div.login_page_wrapper div.login_footer ul li.brand_area {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.login_page_wrapper div.login_footer ul li.brand_area div.brand_name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #000;
+  margin-right: 2px;
+}
+
+div.login_page_wrapper div.login_footer ul li.brand_area div.brand_name div.brand {
+  margin-right: 2px;
+}
+
+div.login_page_wrapper div.login_footer ul li.brand_area div.copyright {
+  font-size: 0.8rem;
+}

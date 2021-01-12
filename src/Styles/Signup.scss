@@ -1,0 +1,215 @@
+div.signup_page_wrapper {
+	height: 100vh;
+	background-color: #eee;
+	div.form_area_wrapper {
+		text-align: center;
+		padding: 15px 0 0 0;
+
+		div.brand_name_wrapper {
+			display: inline-block;
+			div.brand_name {
+				display: flex;
+				font-weight: 700;
+				font-size: 1.9rem;
+				color: #0a66c2;
+
+				div.brand {
+					margin-right: 2px;
+				}
+			}
+		}
+		div.tagline_wrapper {
+			padding-top: 20px;
+			margin-bottom: 20px;
+			p {
+				color: #000;
+
+				font-size: 1.7rem;
+			}
+		}
+		form {
+			width: 30%;
+			margin: 0 auto;
+			padding: 20px;
+			border-radius: 10px;
+			background-color: #fff;
+
+			label {
+				display: block;
+				text-align: left;
+				color: #00000099;
+				font-size: 0.8rem;
+				margin-bottom: 3px;
+			}
+
+			div.fields {
+				border: 1px solid #00000099;
+				border-radius: 5px;
+				width: 100%;
+				height: 30px;
+				margin: 0 auto;
+
+				input {
+					font-size: 1rem;
+					padding-left: 10px;
+					border-radius: 4px;
+
+					&::placeholder {
+						color: #00000099;
+					}
+				}
+			}
+
+			div.email_field {
+				margin-bottom: 10px;
+			}
+
+			div.password_field {
+				margin-bottom: 10px;
+			}
+
+			div.confirm_password_field {
+				margin-bottom: 15px;
+			}
+
+			div.disclaimer_field {
+				font-size: 0.7rem;
+				color: #00000099;
+				margin-bottom: 15px;
+				a {
+					color: #0a66c2;
+				}
+			}
+
+			div.submit_btn {
+				width: 100%;
+				height: 45px;
+				margin: 0 auto 20px auto;
+				border: 1px solid #00000099;
+				border-radius: 40px;
+				background-color: #0a66c2;
+
+				&:hover {
+					background-color: #06488a;
+				}
+
+				button {
+					border: none;
+					color: #fff;
+					font-weight: 700;
+					font-size: 1rem;
+					outline: none;
+					cursor: pointer;
+				}
+			}
+
+			div.other {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 20px;
+
+				div.line1 {
+					width: 42%;
+					hr {
+						border-color: #ffffff99;
+						width: 100%;
+					}
+				}
+
+				div.or {
+					color: #00000099;
+				}
+
+				div.line2 {
+					width: 42%;
+					hr {
+						border-color: #ffffff99;
+						width: 100%;
+					}
+				}
+			}
+
+			div.omni_btn {
+				width: 100%;
+				height: 45px;
+				border: 1px solid #0a66c2;
+				border-radius: 40px;
+
+				&:not(:last-child) {
+					margin-bottom: 20px;
+				}
+
+				&:hover {
+					background-color: #76bbff3a;
+					border: 2px solid #0a66c2;
+				}
+
+				button {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					border: none;
+					color: #0a66c2;
+					font-size: 0.9rem;
+					outline: none;
+					cursor: pointer;
+
+					i {
+						margin-right: 15px;
+						font-size: 1.2rem;
+					}
+				}
+			}
+
+			div.if_new {
+				a {
+					color: #0a66c2;
+					font-weight: 600;
+				}
+			}
+		}
+	}
+	div.signup_footer {
+		border-top: 1px solid #e0e0e0;
+		position: absolute;
+		width: 100%;
+		bottom: 0;
+		padding: 25px 0;
+		background-color: #fff;
+		ul {
+			display: flex;
+			justify-content: center;
+
+			li {
+				font-size: 0.8rem;
+				margin-left: 20px;
+
+				&:not(:first-child) {
+					a {
+						color: #00000099;
+					}
+				}
+			}
+
+			li.brand_area {
+				display: flex;
+				align-items: center;
+				div.brand_name {
+					display: flex;
+					font-weight: 700;
+					font-size: 0.8rem;
+					color: #000;
+					margin-right: 2px;
+
+					div.brand {
+						margin-right: 2px;
+					}
+				}
+				div.copyright {
+					font-size: 0.8rem;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,139 @@
+div.login_page_wrapper {
+	height: 100vh;
+	div.form_area_wrapper {
+		text-align: center;
+		padding: 70px 0 0 0;
+		div.brand_name_wrapper {
+			display: inline-block;
+			div.brand_name {
+				display: flex;
+				font-weight: 700;
+				font-size: 1.2rem;
+				color: #0a66c2;
+
+				div.brand {
+					margin-right: 2px;
+				}
+			}
+		}
+		div.welcome_back_message_wrapper {
+			padding-top: 25px;
+			div.welcome_back_message {
+				div.message {
+					font-weight: 700;
+					font-size: 1.3rem;
+					margin-bottom: 10px;
+				}
+				p {
+					color: #00000099;
+					font-size: 0.9rem;
+				}
+			}
+		}
+		form {
+			width: 50%;
+			margin: 0 auto;
+			padding-top: 25px;
+
+			div.fields {
+				border: 1px solid #00000099;
+				border-radius: 5px;
+				width: 61%;
+				height: 45px;
+				margin: 0 auto;
+
+				input {
+					font-size: 1.1rem;
+					padding-left: 10px;
+					border-radius: 4px;
+
+					&::placeholder {
+						color: #00000099;
+					}
+				}
+			}
+
+			div.email_or_phone_field {
+				margin-bottom: 10px;
+			}
+
+			div.password_field {
+				margin-bottom: 20px;
+			}
+
+			div.submit_btn {
+				width: 61%;
+				height: 45px;
+				margin: 0 auto 25px auto;
+				border: 1px solid #00000099;
+				border-radius: 40px;
+				background-color: #0a66c2;
+
+				&:hover {
+					background-color: #06488a;
+				}
+
+				button {
+					border: none;
+					color: #fff;
+					font-weight: 700;
+					font-size: 1rem;
+					outline: none;
+					cursor: pointer;
+				}
+			}
+			div.forgot_password {
+				color: #0a66c2;
+				font-weight: 600;
+				margin-bottom: 20px;
+			}
+			div.if_new {
+				a {
+					color: #0a66c2;
+					font-weight: 600;
+				}
+			}
+		}
+	}
+	div.login_footer {
+		border-top: 1px solid #eee;
+		position: absolute;
+		width: 100%;
+		bottom: 0;
+		padding: 25px 0;
+		ul {
+			display: flex;
+			justify-content: center;
+
+			li {
+				font-size: 0.8rem;
+				margin-left: 20px;
+
+				&:not(:first-child) {
+					a {
+						color: #00000099;
+					}
+				}
+			}
+
+			li.brand_area {
+				display: flex;
+				align-items: center;
+				div.brand_name {
+					display: flex;
+					font-weight: 700;
+					font-size: 0.8rem;
+					color: #000;
+					margin-right: 2px;
+
+					div.brand {
+						margin-right: 2px;
+					}
+				}
+				div.copyright {
+					font-size: 0.8rem;
+				}
+			}
+		}
+	}
+}
