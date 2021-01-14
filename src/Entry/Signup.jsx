@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import DivWithInput from "../Common/DivWithInput";
 import Icon from "../Common/Icon";
 import "../Styles/Signup.css";
+import axios from "../utils/axios_configs";
+import UserContext from "../Context/userContext";
 
 class Signup extends Component {
 	state = {
@@ -17,8 +19,20 @@ class Signup extends Component {
 		});
 	};
 
-	handleSubmit = (event) => {
+	handleSubmit = async (event) => {
 		event.preventDefault();
+		const { email, password } = this.state;
+		try {
+			const { data } = await axios.post("/users", {
+				email,
+				password,
+			});
+			if (data.user) this.context.loginUser(data.user);
+			localStorage.setItem("token", data.tokenValue);
+			this.props.history.replace("/");
+		} catch (error) {
+			console.log(error.message);
+		}
 	};
 
 	render() {
@@ -41,7 +55,7 @@ class Signup extends Component {
 							inputType='text'
 							inputName='email'
 							inputValue={this.state.email}
-							// inputRequired={true}
+							inputRequired={true}
 							handleChange={this.handleChange}
 							focus={true}
 						/>
@@ -51,7 +65,7 @@ class Signup extends Component {
 							inputType='password'
 							inputName='password'
 							inputValue={this.state.password}
-							// inputRequired={true}
+							inputRequired={true}
 							handleChange={this.handleChange}
 							focus={true}
 						/>
@@ -67,8 +81,9 @@ class Signup extends Component {
 						/> */}
 						<div className='disclaimer_field'>
 							By clicking Agree & Join, you agree to the LinkedIn{" "}
-							<Link to="#">User Agreement</Link>, <Link to="#">User Agreement</Link> and{" "}
-							<Link to="#">Cookie Policy</Link>.
+							<Link to='#'>User Agreement</Link>,{" "}
+							<Link to='#'>User Agreement</Link> and{" "}
+							<Link to='#'>Cookie Policy</Link>.
 						</div>
 						<div className='submit_btn'>
 							<button type='submit'>Agree & Join</button>
@@ -135,5 +150,7 @@ class Signup extends Component {
 		);
 	}
 }
+
+Signup.contextType = UserContext;
 
 export default Signup;

@@ -1,0 +1,63 @@
+div.create_post_wrapper {
+  padding: 10px 3% 10px 3%;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #dadada;
+}
+
+div.create_post_wrapper ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 40px;
+  padding: 0 10px;
+}
+
+div.create_post_wrapper ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 40px;
+  padding: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+div.create_post_wrapper ul li:hover {
+  background-color: #e9e7e7;
+  -webkit-transition: background-color ease-in 0.2s;
+  transition: background-color ease-in 0.2s;
+}
+
+div.create_post_wrapper ul li i {
+  margin-right: 5px;
+  font-size: 1.3rem;
+}
+
+div.create_post_wrapper ul li div.label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #858585;
+}
+
+div.create_post_wrapper ul li.image i {
+  color: #71bdfc;
+}
+
+div.create_post_wrapper ul li.video i {
+  color: #00c500d2;
+}
+
+div.create_post_wrapper ul li.event i {
+  color: #e79600;
+}
+
+div.create_post_wrapper ul li.article i {
+  color: #ff7e7e;
+}

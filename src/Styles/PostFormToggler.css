@@ -1,0 +1,31 @@
+div.post_form_toggler {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #dadada;
+  border-radius: 40px;
+  height: 45px;
+  padding: 0 4%;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+div.post_form_toggler:hover {
+  background-color: #f3f3f3d0;
+  -webkit-transition: background-color ease-in 0.2s;
+  transition: background-color ease-in 0.2s;
+}
+
+div.post_form_toggler i {
+  margin-right: 8px;
+  color: #00000099;
+  font-size: 1.2rem;
+}
+
+div.post_form_toggler div.start_post {
+  font-size: 0.8rem;
+  color: #00000099;
+}

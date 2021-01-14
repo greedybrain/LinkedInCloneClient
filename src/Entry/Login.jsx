@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import DivWithInput from "../Common/DivWithInput";
 import Icon from "../Common/Icon";
 import "../Styles/Login.css";
+import axios from "../utils/axios_configs";
+import UserContext from "../Context/userContext";
 
 class Login extends Component {
 	state = {
@@ -16,8 +18,21 @@ class Login extends Component {
 		});
 	};
 
-	handleSubmit = (event) => {
+	handleSubmit = async (event) => {
 		event.preventDefault();
+
+		const { email_or_phone, password } = this.state;
+		try {
+			const { data } = await axios.post("/users/login", {
+				email_or_phone,
+				password,
+			});
+			if (data.user) this.context.loginUser(data.user);
+			localStorage.setItem("token", data.tokenValue);
+			this.props.history.replace("/");
+		} catch (error) {
+			console.log(error.message);
+		}
 	};
 
 	render() {
@@ -46,7 +61,7 @@ class Login extends Component {
 							inputName='email_or_phone'
 							inputPlaceholder='Email or Phone'
 							inputValue={this.state.email_or_phone}
-							// inputRequired={true}
+							inputRequired={true}
 							handleChange={this.handleChange}
 							focus={true}
 						/>
@@ -56,7 +71,7 @@ class Login extends Component {
 							inputName='password'
 							inputPlaceholder='Password'
 							inputValue={this.state.password}
-							// inputRequired={true}
+							inputRequired={true}
 							handleChange={this.handleChange}
 							focus={true}
 						/>
@@ -105,14 +120,7 @@ class Login extends Component {
 		);
 	}
 }
-// specialClass,
-// 	inputType,
-// 	inputName,
-// 	inputPlaceholder,
-// 	inputValue,
-// 	inputRequired,
-// 	handleChange,
-// 	handleFocus,
-// 	handleBlur,
-// 	focus;
+
+Login.contextType = UserContext;
+
 export default Login;

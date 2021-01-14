@@ -1,0 +1,48 @@
+div.home_left_user_activity_wrapper {
+  border-radius: 10px;
+  background-color: #fff;
+  border: 1px solid #dadada;
+  margin-top: 5px;
+}
+
+div.home_left_user_activity_wrapper ul {
+  padding: 10px 4%;
+}
+
+div.home_left_user_activity_wrapper ul li {
+  font-size: 0.7rem;
+}
+
+div.home_left_user_activity_wrapper ul li:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+div.home_left_user_activity_wrapper ul li:not(:first-child) a {
+  color: #0a66c2;
+}
+
+div.home_left_user_activity_wrapper ul li.events_level {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+div.home_left_user_activity_wrapper ul li.events_level i {
+  color: #00000099;
+}
+
+div.home_left_user_activity_wrapper div.discover_more {
+  border-top: 1px solid #dadada;
+  font-size: 0.7rem;
+  padding: 10px 0;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 0 0 9px 9px;
+}
+
+div.home_left_user_activity_wrapper div.discover_more:hover {
+  background-color: #e7e7e7;
+}

@@ -1,26 +1,32 @@
-import React from "react";
-import { Route, Switch } from "react-router-dom";
+import React, { useContext } from "react";
+import { Redirect, Route, Switch } from "react-router-dom";
 import Login from "./Entry/Login";
 import Signup from "./Entry/Signup";
 import Home from "./Home/Home";
+import UserContext from "./Context/userContext";
 
 const Routes = () => {
+	const userData = useContext(UserContext);
 	return (
 		<Switch>
 			<Route
 				exact
 				path='/signup'
-				render={(routerProps) => <Signup {...routerProps} />}
+				render={(routerProps) =>
+					userData.loggedIn ? <Redirect to='/' /> : <Signup {...routerProps} />
+				}
 			/>
 			<Route
 				exact
 				path='/login'
-				render={(routerProps) => <Login {...routerProps} />}
+				render={(routerProps) =>
+					userData.loggedIn ? <Redirect to='/' /> : <Login {...routerProps} />
+				}
 			/>
 			<Route
 				exact
 				path='/'
-				render={(routerProps) => <Home {...routerProps} />}
+				render={(routerProps) => !userData.loggedIn ? <Redirect to='/login' /> : <Home {...routerProps} />}
 			/>
 		</Switch>
 	);

@@ -1,0 +1,59 @@
+div.me_popup_wrapper {
+  position: absolute;
+  top: 55px;
+  right: 205px;
+  z-index: 100;
+  background-color: #fff;
+  border-radius: 10px 0 10px 10px;
+  width: 235px;
+  padding: 8px;
+  -webkit-box-shadow: 0px 0px 9px -2px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 0px 9px -2px rgba(0, 0, 0, 0.28);
+}
+
+div.me_popup_wrapper div.popup_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 8px;
+}
+
+div.me_popup_wrapper div.popup_header div.image_wrapper {
+  width: 80px;
+}
+
+div.me_popup_wrapper div.popup_header div.image_wrapper img {
+  border-radius: 50%;
+}
+
+div.me_popup_wrapper div.popup_header div.name_and_headline {
+  padding: 0 5px;
+}
+
+div.me_popup_wrapper div.popup_header div.name_and_headline div.name {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+div.me_popup_wrapper div.popup_header div.name_and_headline div.headline {
+  color: #00000099;
+  font-size: 0.8rem;
+}
+
+div.me_popup_wrapper div.view_profile_btn {
+  border: 1px solid #0a66c2;
+  border-radius: 40px;
+}
+
+div.me_popup_wrapper div.view_profile_btn:hover {
+  background-color: #76bbff3a;
+  border: 2px solid #0a66c2;
+}
+
+div.me_popup_wrapper div.view_profile_btn button {
+  border: none;
+  color: #0a66c2;
+}

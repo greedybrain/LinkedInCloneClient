@@ -1,0 +1,60 @@
+div.create_post_wrapper {
+	padding: 10px 3% 10px 3%;
+	background-color: #fff;
+	border-radius: 10px;
+	border: 1px solid #dadada;
+
+	ul {
+		display: flex;
+		justify-content: space-between;
+		height: 40px;
+		padding: 0 10px;
+
+		li {
+			display: flex;
+			align-items: center;
+			height: 40px;
+			padding: 0 5px;
+			border-radius: 5px;
+			cursor: pointer;
+
+			&:hover {
+				background-color: #e9e7e7;
+				transition: background-color ease-in 0.2s;
+			}
+
+			i {
+				margin-right: 5px;
+				font-size: 1.3rem;
+			}
+
+			div.label {
+				font-size: 0.8rem;
+				font-weight: 700;
+				color: #858585;
+			}
+
+			&.image {
+				i {
+					color: #71bdfc;
+				}
+			}
+
+			&.video {
+				i {
+					color: #00c500d2;
+				}
+			}
+			&.event {
+				i {
+					color: #e79600;
+				}
+			}
+			&.article {
+				i {
+					color: rgb(255, 126, 126);
+				}
+			}
+		}
+	}
+}
