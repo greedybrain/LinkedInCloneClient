@@ -10,6 +10,12 @@ div.user_tab_wrapper {
       -ms-flex-align: center;
           align-items: center;
   padding: 2px 0;
+  position: relative;
+}
+
+div.user_tab_wrapper div.image_wrapper:active img {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 div.user_tab_wrapper div.user_tab_lower {
@@ -22,7 +28,7 @@ div.user_tab_wrapper div.user_tab_lower {
 }
 
 div.user_tab_wrapper div.user_tab_lower div.me {
-  font-size: .7rem;
+  font-size: 0.7rem;
   margin-right: 2px;
   height: 100%;
   display: -webkit-box;

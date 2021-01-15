@@ -8,7 +8,7 @@ import UserContext from "../Context/userContext";
 
 class Login extends Component {
 	state = {
-		email_or_phone: "",
+		email: "",
 		password: "",
 	};
 
@@ -21,15 +21,15 @@ class Login extends Component {
 	handleSubmit = async (event) => {
 		event.preventDefault();
 
-		const { email_or_phone, password } = this.state;
+		const { email, password } = this.state;
 		try {
 			const { data } = await axios.post("/users/login", {
-				email_or_phone,
+				email,
 				password,
 			});
 			if (data.user) this.context.loginUser(data.user);
 			localStorage.setItem("token", data.tokenValue);
-			this.props.history.replace("/");
+			this.props.history.replace("/feed");
 		} catch (error) {
 			console.log(error.message);
 		}
@@ -58,9 +58,9 @@ class Login extends Component {
 						<DivWithInput
 							specialClass='email_or_phone_field fields'
 							inputType='text'
-							inputName='email_or_phone'
+							inputName='email'
 							inputPlaceholder='Email or Phone'
-							inputValue={this.state.email_or_phone}
+							inputValue={this.state.email}
 							inputRequired={true}
 							handleChange={this.handleChange}
 							focus={true}

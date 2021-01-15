@@ -1,4 +1,14 @@
 header.main_header {
+  border-bottom: 1px solid #eee;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 5.6vh;
+  min-height: 50px;
+}
+
+header.main_header div.header_wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8,14 +18,8 @@ header.main_header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 6vh;
-  min-height: 50px;
-  padding: 0 3%;
-  border-bottom: 1px solid #eee;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  width: 1020px;
+  margin: 0 auto;
 }
 
 header.main_header div.logo_and_search_bar {

@@ -1,16 +1,20 @@
 import React, { Component } from "react";
 import Icon from "../../Common/Icon";
+import UserContext from "../../Context/userContext";
 import "../../Styles/PostFormToggler.css";
 
 class PostFormToggler extends Component {
 	render() {
+		const { showCreatePostPopup, toggleCreatePostPopup } = this.context;
 		return (
-			<div className='post_form_toggler'>
+			<div className='post_form_toggler' onClick={toggleCreatePostPopup}>
 				<Icon name='far fa-edit' />
 				<div className='start_post'>Start a post</div>
 			</div>
 		);
 	}
 }
+
+PostFormToggler.contextType = UserContext;
 
 export default PostFormToggler;

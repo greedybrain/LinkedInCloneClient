@@ -8,13 +8,14 @@ import axios from "./utils/axios_configs";
 import Header from "./Header/Header";
 import Routes from "./Routes";
 import UserContext from "./Context/userContext";
-import MePopup from "./MePopup";
+import CreatePostPopup from "./CreatePostPopup";
 
 class App extends Component {
 	state = {
 		loggedIn: false,
-		token: "",
 		user: {},
+		showMePopup: false,
+		showCreatePostPopup: false,
 	};
 
 	getCurrentUser = async () => {
@@ -33,25 +34,65 @@ class App extends Component {
 		this.getCurrentUser();
 	}
 
+	toggleMePopup = () => {
+		this.setState((prevState) => ({
+			showMePopup: !prevState.showMePopup,
+		}));
+	};
+
+	toggleCreatePostPopup = () => {
+		this.setState((prevState) => ({
+			showCreatePostPopup: !prevState.showCreatePostPopup,
+		}));
+	};
+
+	handlePopupLeave = () => {
+		this.setState({
+			showMePopup: false,
+		});
+	};
+
 	loginUser = (user) => {
 		this.setState({ loggedIn: true, user });
 	};
 
+	logoutUser = async () => {
+		try {
+			const { data } = await axios.post("/users/logout");
+			console.log(data);
+		} catch (error) {
+			console.log(error.message);
+		}
+		this.setState({ loggedIn: false, user: {}, showMePopup: false });
+		localStorage.removeItem("token");
+	};
+
 	render() {
-		const { loggedIn, user } = this.state;
+		const { loggedIn, user, showMePopup, showCreatePostPopup } = this.state;
 		return (
 			<UserContext.Provider
 				value={{
 					loggedIn,
 					user,
+					showMePopup,
+					showCreatePostPopup,
 					loginUser: this.loginUser,
+					logoutUser: this.logoutUser,
+					toggleMePopup: this.toggleMePopup,
+					toggleCreatePostPopup: this.toggleCreatePostPopup,
+					handlePopupLeave: this.handlePopupLeave,
 				}}
 			>
-				<div className='App' style={{ minWidth: "1100px", maxWidth: "1200px" }}>
+				<div
+					className='App'
+					style={{
+						height: "100vh",
+					}}
+				>
 					{loggedIn ? <Header /> : null}
 					<Routes />
+					{showCreatePostPopup ? <CreatePostPopup /> : null}
 				</div>
-				<MePopup />
 			</UserContext.Provider>
 		);
 	}

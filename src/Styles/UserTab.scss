@@ -1,24 +1,33 @@
 div.user_tab_wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 2px 0;
-        
-        div.user_tab_lower {
-                display: flex;
-                align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 2px 0;
+	position: relative;
 
-                div.me {
-                        font-size: .7rem;
-                        margin-right: 2px;
-                        height: 100%;
-                        display: flex;
-                        align-items: center;
-                }
+	div.image_wrapper {
+		&:active {
+			img {
+				transform: scale(1.1);
+			}
+		}
+	}
 
-                div.drop_down_arrow {
-                        font-size: 1.1rem;
-                        padding-bottom: 3px;
-                }
-        }
+	div.user_tab_lower {
+		display: flex;
+		align-items: center;
+
+		div.me {
+			font-size: 0.7rem;
+			margin-right: 2px;
+			height: 100%;
+			display: flex;
+			align-items: center;
+		}
+
+		div.drop_down_arrow {
+			font-size: 1.1rem;
+			padding-bottom: 3px;
+		}
+	}
 }

@@ -1,55 +1,54 @@
 nav.main_nav {
-        ul {
-                display: flex;
-                a {
-                        color: #00000099;
+	ul {
+		display: flex;
+		a {
+			color: #00000099;
 
-                        &:active {
-                                li.nav_item {
-                                        div.icon_wrapper {
-                                                transform: scale(1.1);
-                                        }
-                                }
-                        }
+			&:active {
+				li.nav_item {
+					div.icon_wrapper {
+						transform: scale(1.1);
+					}
+				}
+			}
 
-                        li.nav_item {
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                flex-direction: column;
-                                width: 70px;
-                                height: 100%;
+			li.nav_item {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+				width: 70px;
+				height: 100%;
 
-                                i {
-                                        font-size: 1.1rem;
-                                }
-        
-                                div.nav_item_name {
-                                        font-size: .7rem;
-                                } 
-                        }
+				i {
+					font-size: 1.1rem;
+				}
 
-                        li.user_tab {
-                                border-right: 1px solid #eee;
-                                img {
-                                        position: relative;
-                                        top: 4px;
-                                }
-                        }
+				div.nav_item_name {
+					font-size: 0.7rem;
+				}
+			}
 
-                        li.work_tab {
-                                i {
-                                        position: relative;
-                                        top: 4px;
-                                }
-                        }
+			li.user_tab {
+				border-right: 1px solid #eee;
+				img {
+					position: relative;
+					top: 4px;
+				}
+			}
 
-                        li.try_premium_tab {
-                                text-align: center;
-                                font-size: .7rem;
-                                width: 100px;
-                        }
+			li.work_tab {
+				i {
+					position: relative;
+					top: 4px;
+				}
+			}
 
-                }
-        }
+			li.try_premium_tab {
+				text-align: center;
+				font-size: 0.7rem;
+				width: 100px;
+			}
+		}
+	}
 }

@@ -13,6 +13,10 @@ div.post_form_toggler {
 		transition: background-color ease-in 0.2s;
 	}
 
+	&:active {
+		background-color: #c4c4c485;
+	}
+
 	i {
 		margin-right: 8px;
 		color: #00000099;

@@ -11,12 +11,14 @@ import HomeRight from "./HomeRight";
 class Home extends Component {
 	render() {
 		return (
-			<div className='home_page_wrapper'>
-				<HeadAd />
-				<div className='home_page_body'>
-					<HomeLeft />
-					<HomeFeed />
-					{/* <HomeRight /> */}
+			<div className='home_page'>
+				<div className='home_page_wrapper'>
+					<HeadAd />
+					<div className='home_page_body'>
+						<HomeLeft />
+						<HomeFeed />
+						{/* <HomeRight /> */}
+					</div>
 				</div>
 			</div>
 		);

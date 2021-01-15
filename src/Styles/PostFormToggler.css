@@ -19,6 +19,10 @@ div.post_form_toggler:hover {
   transition: background-color ease-in 0.2s;
 }
 
+div.post_form_toggler:active {
+  background-color: #c4c4c485;
+}
+
 div.post_form_toggler i {
   margin-right: 8px;
   color: #00000099;

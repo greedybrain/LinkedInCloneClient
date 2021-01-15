@@ -1,0 +1,227 @@
+div.create_post_popup {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.74);
+  z-index: 100;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+div.create_post_popup div.create_post_popup_wrapper {
+  margin-top: 90px;
+  background-color: #fff;
+  border-radius: 10px;
+  color: #fff;
+  width: 490px;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.create_post_popup_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 13px 4%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.create_post_popup_header div.label {
+  font-size: 1.2rem;
+  color: #000;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.create_post_popup_header i {
+  font-size: 1.3rem;
+  color: #00000099;
+  cursor: pointer;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body {
+  padding: 0 4%;
+  margin-top: 10px;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body div.body_head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body div.body_head div.name_and_privacy {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body div.body_head div.name_and_privacy div.name {
+  color: #000;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body div.body_head div.name_and_privacy div.privacy {
+  border: 1px solid #333;
+  border-radius: 40px;
+  color: #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 110px;
+  height: 27px;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body div.body_head div.name_and_privacy div.privacy:hover {
+  border: 2px solid #333;
+  background-color: #0000001c;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body div.body_head div.name_and_privacy div.privacy i {
+  font-size: 0.8rem;
+  color: #00000099;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body div.body_head div.name_and_privacy div.privacy div.label {
+  font-size: 0.9rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body div.body_head div.name_and_privacy div.privacy div.label span {
+  margin-left: 3px;
+  position: relative;
+  font-weight: 600;
+  color: #00000099;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body form div.body_post_area {
+  margin-top: 25px;
+  height: 100px;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body form div.body_post_area div.post_field textarea {
+  width: 100%;
+  resize: none;
+  font-size: 1.25rem;
+  border: none;
+  outline: none;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body form div.body_post_area div.post_field textarea::-webkit-input-placeholder {
+  color: #00000099;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body form div.body_post_area div.post_field textarea:-ms-input-placeholder {
+  color: #00000099;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body form div.body_post_area div.post_field textarea::-ms-input-placeholder {
+  color: #00000099;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body form div.body_post_area div.post_field textarea::placeholder {
+  color: #00000099;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body form div.add_hash_tags {
+  color: #000;
+  padding-bottom: 10px;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body form div.add_hash_tags ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body form div.add_hash_tags ul li {
+  color: #0a66c2;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 2px;
+  font-size: 1rem;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body form div.add_hash_tags ul li:not(:first-child) {
+  margin-left: 15px;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body form div.add_hash_tags ul li:hover {
+  background-color: #389bff1f;
+  border-radius: 5px;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body form div.body_footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px 0;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body form div.body_footer div.extras {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body form div.body_footer div.extras div {
+  cursor: pointer;
+  padding: 8px 6px;
+  width: 35px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body form div.body_footer div.extras div:hover {
+  background-color: #eee;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body form div.body_footer div.extras div:not(:first-child) {
+  margin-left: 5px;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body form div.body_footer div.extras div i {
+  color: #333333b9;
+  font-size: 1.2rem;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body form div.body_footer div.submit_btn {
+  border: 1px solid #eee;
+  width: 60px;
+  padding: 3px 8px;
+  border-radius: 40px;
+}
+
+div.create_post_popup div.create_post_popup_wrapper div.body form div.body_footer div.submit_btn button {
+  border: none;
+  outline: none;
+}

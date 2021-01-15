@@ -29,7 +29,7 @@ class Signup extends Component {
 			});
 			if (data.user) this.context.loginUser(data.user);
 			localStorage.setItem("token", data.tokenValue);
-			this.props.history.replace("/");
+			this.props.history.replace("/feed");
 		} catch (error) {
 			console.log(error.message);
 		}

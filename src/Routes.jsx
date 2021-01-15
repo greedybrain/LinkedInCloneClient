@@ -25,8 +25,14 @@ const Routes = () => {
 			/>
 			<Route
 				exact
-				path='/'
-				render={(routerProps) => !userData.loggedIn ? <Redirect to='/login' /> : <Home {...routerProps} />}
+				path='/feed'
+				render={(routerProps) =>
+					!userData.loggedIn ? (
+						<Redirect to='/login' />
+					) : (
+						<Home {...routerProps} />
+					)
+				}
 			/>
 		</Switch>
 	);

@@ -36,7 +36,7 @@ nav.main_nav ul a li.nav_item i {
 }
 
 nav.main_nav ul a li.nav_item div.nav_item_name {
-  font-size: .7rem;
+  font-size: 0.7rem;
 }
 
 nav.main_nav ul a li.user_tab {
@@ -55,6 +55,6 @@ nav.main_nav ul a li.work_tab i {
 
 nav.main_nav ul a li.try_premium_tab {
   text-align: center;
-  font-size: .7rem;
+  font-size: 0.7rem;
   width: 100px;
 }
