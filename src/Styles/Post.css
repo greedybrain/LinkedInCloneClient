@@ -1,0 +1,157 @@
+div.post_wrapper {
+  border-radius: 10px;
+  padding: 10px 15px;
+  background-color: #fff;
+  border: 1px solid #dadada;
+  margin-top: 5px;
+}
+
+div.post_wrapper div.post div.post_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+div.post_wrapper div.post div.post_header div.header_left div.image_wrapper {
+  width: 45px;
+}
+
+div.post_wrapper div.post div.post_header div.header_left div.image_wrapper img {
+  border-radius: 50%;
+}
+
+div.post_wrapper div.post div.post_header div.header_right {
+  width: 100%;
+  padding-left: 5px;
+}
+
+div.post_wrapper div.post div.post_header div.header_right div.name_headline_time {
+  font-size: 0.85rem;
+  line-height: 1.3;
+}
+
+div.post_wrapper div.post div.post_header div.header_right div.name_headline_time div.headline {
+  font-size: 0.75rem;
+  color: #00000099;
+}
+
+div.post_wrapper div.post div.post_header div.header_right div.name_headline_time div.time_access {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.post_wrapper div.post div.post_header div.header_right div.name_headline_time div.time_access div.time {
+  margin-right: 3px;
+}
+
+div.post_wrapper div.post div.post_header div.header_right div.name_headline_time div.time_access div.ell {
+  font-size: 0.4rem;
+  color: #00000099;
+  margin-right: 3px;
+}
+
+div.post_wrapper div.post div.post_header div.header_right div.name_headline_time div.time_access i {
+  font-size: 0.8rem;
+  color: #00000099;
+}
+
+div.post_wrapper div.post div.post_header div.header_right div.name_headline_time div.time {
+  font-size: 0.75rem;
+  color: #00000099;
+}
+
+div.post_wrapper div.post div.post_header div.header_right div.name_headline_time div.name_ellipsis {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+div.post_wrapper div.post div.post_header div.header_right div.name_headline_time div.name_ellipsis div.name {
+  font-weight: 700;
+}
+
+div.post_wrapper div.post div.post_header div.header_right div.name_headline_time div.name_ellipsis div.ellipsis {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.5rem;
+  color: #00000099;
+  cursor: pointer;
+}
+
+div.post_wrapper div.post div.post_header div.header_right div.name_headline_time div.name_ellipsis div.ellipsis div.ell:not(:last-child) {
+  margin-right: 4px;
+}
+
+div.post_wrapper div.post div.post_body {
+  font-size: 0.9rem;
+  margin-top: 8px;
+  color: #333;
+  border-bottom: 1px solid #dadada;
+  padding-bottom: 8px;
+}
+
+div.post_wrapper div.post div.post_body div.content {
+  margin-bottom: 10px;
+}
+
+div.post_wrapper div.post div.post_body div.comment_meta_data {
+  font-size: 0.8rem;
+  color: #00000099;
+}
+
+div.post_wrapper div.post div.post_footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+div.post_wrapper div.post div.post_footer div.meta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 15px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 8px;
+  height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+div.post_wrapper div.post div.post_footer div.meta:hover {
+  background-color: #83838336;
+}
+
+div.post_wrapper div.post div.post_footer div.meta i {
+  font-size: 1.3rem;
+  color: #00000099;
+}
+
+div.post_wrapper div.post div.post_footer div.meta i.like {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+div.post_wrapper div.post div.post_footer div.meta i.comment {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+div.post_wrapper div.post div.post_footer div.meta i.icon {
+  margin-right: 5px;
+}
+
+div.post_wrapper div.post div.post_footer div.meta div.label {
+  font-size: 0.9rem;
+  color: #00000099;
+  font-weight: 600;
+}

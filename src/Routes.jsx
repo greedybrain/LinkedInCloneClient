@@ -34,6 +34,7 @@ const Routes = () => {
 					)
 				}
 			/>
+			<Redirect from='/' to='/feed' />
 		</Switch>
 	);
 };
