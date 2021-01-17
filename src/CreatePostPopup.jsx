@@ -3,6 +3,7 @@ import Icon from "./Common/Icon";
 import UserImage from "./Common/UserImage";
 import UserContext from "./Context/userContext";
 import "./Styles/CreatePostPopup.css";
+import axios from "./utils/axios_configs";
 
 class CreatePostPopup extends Component {
 	constructor(props) {
@@ -23,6 +24,29 @@ class CreatePostPopup extends Component {
 		if (content.length > 0) this.setState({ buttonDisabled: false });
 	};
 
+	handleSubmit = async (event) => {
+		event.preventDefault();
+
+		const token = localStorage.getItem("token");
+		const { content } = this.state;
+		const { addNewPost, toggleCreatePostPopup } = this.context;
+		try {
+			const { data } = await axios.post(
+				"/posts",
+				{
+					content,
+				},
+				{
+					headers: { Authorization: `Bearer ${token}` },
+				}
+			);
+			addNewPost(data);
+			toggleCreatePostPopup();
+		} catch (error) {
+			console.log(error.message);
+		}
+	};
+
 	render() {
 		const userImage = {
 			imageWrapper: {
@@ -32,7 +56,7 @@ class CreatePostPopup extends Component {
 				},
 			},
 		};
-		const { toggleCreatePostPopup } = this.context;
+		const { toggleCreatePostPopup, user } = this.context;
 		return (
 			<div className='create_post_popup animate__animated animate__fadeIn animate__faster'>
 				<div className='create_post_popup_wrapper'>
@@ -46,7 +70,7 @@ class CreatePostPopup extends Component {
 						<div className='body_head'>
 							<UserImage styles={userImage} />
 							<div className='name_and_privacy'>
-								<div className='name'>Naya Willis</div>
+								<div className='name'>{user.name}</div>
 								<div className='privacy'>
 									<div className='label'>
 										<Icon name='fas fa-globe-americas' />
@@ -56,7 +80,7 @@ class CreatePostPopup extends Component {
 								</div>
 							</div>
 						</div>
-						<form>
+						<form onSubmit={this.handleSubmit}>
 							<div className='body_post_area'>
 								<div className='post_field'>
 									<textarea

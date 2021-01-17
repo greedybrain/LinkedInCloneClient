@@ -7,7 +7,7 @@ import "./Styles/MePopup.css";
 class MePopup extends Component {
 	render() {
 		const { handlePopupLeave } = this.props;
-		const { logoutUser } = this.context;
+		const { logoutUser, user } = this.context;
 		return (
 			<div
 				className='me_popup_wrapper animate__animated animate__fadeIn animate__faster'
@@ -15,13 +15,16 @@ class MePopup extends Component {
 			>
 				<div className='popup_header'>
 					<div className='image_wrapper'>
-						<img src={naya_willis} alt='naya willis' />
+						<img
+							src={
+								"https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png"
+							}
+							alt='naya willis'
+						/>
 					</div>
 					<div className='name_and_headline'>
-						<div className='name'>Naya Willis</div>
-						<div className='headline'>
-							Incoming Software Engineer Apprentice @Twitter
-						</div>
+						<div className='name'>{user.name}</div>
+						<div className='headline'>{user.headline}</div>
 					</div>
 				</div>
 				<div className='view_profile_btn'>

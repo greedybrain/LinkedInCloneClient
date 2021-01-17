@@ -16,6 +16,7 @@ class App extends Component {
 		user: {},
 		showMePopup: false,
 		showCreatePostPopup: false,
+		allPosts: [],
 	};
 
 	getCurrentUser = async () => {
@@ -30,8 +31,22 @@ class App extends Component {
 		}
 	};
 
+	getAllPosts = async () => {
+		const token = localStorage.getItem("token");
+		try {
+			const { data } = await axios("/posts", {
+				headers: { Authorization: `Bearer ${token}` },
+			});
+			data.reverse();
+			this.setState({ allPosts: data });
+		} catch (error) {
+			console.log(error.message);
+		}
+	};
+
 	async componentDidMount() {
 		this.getCurrentUser();
+		this.getAllPosts();
 	}
 
 	toggleMePopup = () => {
@@ -58,8 +73,7 @@ class App extends Component {
 
 	logoutUser = async () => {
 		try {
-			const { data } = await axios.post("/users/logout");
-			console.log(data);
+			await axios.post("/users/logout");
 		} catch (error) {
 			console.log(error.message);
 		}
@@ -67,13 +81,26 @@ class App extends Component {
 		localStorage.removeItem("token");
 	};
 
+	addNewPost = (post) => {
+		this.setState((prevState) => ({
+			allPosts: [post, ...prevState.allPosts],
+		}));
+	};
+
 	render() {
-		const { loggedIn, user, showMePopup, showCreatePostPopup } = this.state;
+		const {
+			loggedIn,
+			user,
+			allPosts,
+			showMePopup,
+			showCreatePostPopup,
+		} = this.state;
 		return (
 			<UserContext.Provider
 				value={{
 					loggedIn,
 					user,
+					allPosts,
 					showMePopup,
 					showCreatePostPopup,
 					loginUser: this.loginUser,
@@ -81,6 +108,7 @@ class App extends Component {
 					toggleMePopup: this.toggleMePopup,
 					toggleCreatePostPopup: this.toggleCreatePostPopup,
 					handlePopupLeave: this.handlePopupLeave,
+					addNewPost: this.addNewPost,
 				}}
 			>
 				<div

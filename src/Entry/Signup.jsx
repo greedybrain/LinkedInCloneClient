@@ -8,9 +8,10 @@ import UserContext from "../Context/userContext";
 
 class Signup extends Component {
 	state = {
+		name: "",
 		email: "",
 		password: "",
-		// password_confirmation: "",
+		headline: "",
 	};
 
 	handleChange = (event) => {
@@ -21,10 +22,12 @@ class Signup extends Component {
 
 	handleSubmit = async (event) => {
 		event.preventDefault();
-		const { email, password } = this.state;
+		const { name, email, headline, password } = this.state;
 		try {
 			const { data } = await axios.post("/users", {
+				name,
 				email,
+				headline,
 				password,
 			});
 			if (data.user) this.context.loginUser(data.user);
@@ -49,6 +52,16 @@ class Signup extends Component {
 						<p>Make the most of your professional life</p>
 					</div>
 					<form onSubmit={this.handleSubmit}>
+						<label htmlFor='name'>Name</label>
+						<DivWithInput
+							specialClass='name_field fields'
+							inputType='text'
+							inputName='name'
+							inputValue={this.state.name}
+							inputRequired={true}
+							handleChange={this.handleChange}
+							focus={true}
+						/>
 						<label htmlFor='email'>Email</label>
 						<DivWithInput
 							specialClass='email_field fields'
@@ -57,7 +70,15 @@ class Signup extends Component {
 							inputValue={this.state.email}
 							inputRequired={true}
 							handleChange={this.handleChange}
-							focus={true}
+						/>
+						<label htmlFor='headline'>Headline</label>
+						<DivWithInput
+							specialClass='headline_field fields'
+							inputType='text'
+							inputName='headline'
+							inputValue={this.state.headline}
+							inputRequired={true}
+							handleChange={this.handleChange}
 						/>
 						<label htmlFor='password'>Password (6 or more characters)</label>
 						<DivWithInput
@@ -67,18 +88,8 @@ class Signup extends Component {
 							inputValue={this.state.password}
 							inputRequired={true}
 							handleChange={this.handleChange}
-							focus={true}
 						/>
-						{/* <label htmlFor='confirm_password'>Confirm Password</label>
-						<DivWithInput
-							specialClass='confirm_password_field fields'
-							inputType='password'
-							inputName='password'
-							inputValue={this.state.password}
-							// inputRequired={true}
-							handleChange={this.handleChange}
-							focus={true}
-						/> */}
+
 						<div className='disclaimer_field'>
 							By clicking Agree & Join, you agree to the LinkedIn{" "}
 							<Link to='#'>User Agreement</Link>,{" "}

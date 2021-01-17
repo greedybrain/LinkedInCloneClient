@@ -81,11 +81,19 @@ div.signup_page_wrapper div.form_area_wrapper form div.fields input::placeholder
   color: #00000099;
 }
 
+div.signup_page_wrapper div.form_area_wrapper form div.name_field {
+  margin-bottom: 10px;
+}
+
 div.signup_page_wrapper div.form_area_wrapper form div.email_field {
   margin-bottom: 10px;
 }
 
 div.signup_page_wrapper div.form_area_wrapper form div.password_field {
+  margin-bottom: 10px;
+}
+
+div.signup_page_wrapper div.form_area_wrapper form div.headline_field {
   margin-bottom: 10px;
 }
 
