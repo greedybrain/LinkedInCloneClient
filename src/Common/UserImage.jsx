@@ -2,7 +2,6 @@
 import React from "react";
 
 //! Cutome Modules/ Components
-import avatar from "../Images/naya_willis.jpg";
 
 const UserImage = ({ styles }) => {
 	return (

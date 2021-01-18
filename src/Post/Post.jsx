@@ -1,10 +1,14 @@
 import React from "react";
-import Icon from "./Common/Icon";
-import "./Styles/Post.css";
+import Icon from "../Common/Icon";
+import "../Styles/Post.css";
+import moment from "moment";
 
-const Post = ({ image, name, headline, content, created }) => {
+const Post = ({ image, post }) => {
+	const handleClickTest = () => {
+		alert(post._id);
+	};
 	return (
-		<div className='post_wrapper'>
+		<div className='post_wrapper animate__animated animate__zoomIn animate__faster'>
 			<div className='post'>
 				<div className='post_header'>
 					<div className='header_left'>
@@ -15,16 +19,16 @@ const Post = ({ image, name, headline, content, created }) => {
 					<div className='header_right'>
 						<div className='name_headline_time'>
 							<div className='name_ellipsis'>
-								<div className='name'>{name}</div>
-								<div className='ellipsis'>
+								<div className='name'>{post.user.name}</div>
+								<div className='ellipsis' onClick={handleClickTest}>
 									<div className='ellipsis_1 ell'>•</div>
 									<div className='ellipsis_2 ell'>•</div>
 									<div className='ellipsis_3 ell'>•</div>
 								</div>
 							</div>
-							<div className='headline'>{headline}</div>
+							<div className='headline'>{post.user.headline}</div>
 							<div className='time_access'>
-								<div className='time'>{created}</div>
+								<div className='time'>{moment(post.createdAt).fromNow()}</div>
 								<div className='ell'>•</div>
 								<Icon name='fas fa-globe-americas' />
 							</div>
@@ -32,7 +36,7 @@ const Post = ({ image, name, headline, content, created }) => {
 					</div>
 				</div>
 				<div className='post_body'>
-					<div className='content'>{content}</div>
+					<div className='content'>{post.content}</div>
 					<div className='comment_meta_data'>0 • Comments</div>
 				</div>
 				<div className='post_footer'>

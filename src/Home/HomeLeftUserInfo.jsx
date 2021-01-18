@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import Icon from "../Common/Icon";
 import UserContext from "../Context/userContext";
 import coverImage from "../Images/cover_image.jpeg";
-import userImage from "../Images/naya_willis.jpg";
 import "../Styles/HomeLeftUserInfo.css";
 
 const HomeLeftUserInfo = () => {

@@ -8,15 +8,15 @@ import axios from "./utils/axios_configs";
 import Header from "./Header/Header";
 import Routes from "./Routes";
 import UserContext from "./Context/userContext";
-import CreatePostPopup from "./CreatePostPopup";
+import CreatePostPopup from "./Post/CreatePostPopup";
 
 class App extends Component {
 	state = {
 		loggedIn: false,
 		user: {},
+		usersPosts: [],
 		showMePopup: false,
 		showCreatePostPopup: false,
-		allPosts: [],
 	};
 
 	getCurrentUser = async () => {
@@ -25,20 +25,12 @@ class App extends Component {
 			const { data } = await axios("/users/me", {
 				headers: { Authorization: `Bearer ${token}` },
 			});
-			if (data._id) this.setState({ loggedIn: true, user: data });
-		} catch (error) {
-			console.log(error.message);
-		}
-	};
-
-	getAllPosts = async () => {
-		const token = localStorage.getItem("token");
-		try {
-			const { data } = await axios("/posts", {
-				headers: { Authorization: `Bearer ${token}` },
-			});
-			data.reverse();
-			this.setState({ allPosts: data });
+			if (data.data._id)
+				this.setState({
+					loggedIn: true,
+					user: data.data,
+					usersPosts: data.posts,
+				});
 		} catch (error) {
 			console.log(error.message);
 		}
@@ -46,7 +38,6 @@ class App extends Component {
 
 	async componentDidMount() {
 		this.getCurrentUser();
-		this.getAllPosts();
 	}
 
 	toggleMePopup = () => {
@@ -77,40 +68,31 @@ class App extends Component {
 		} catch (error) {
 			console.log(error.message);
 		}
-		this.setState({ loggedIn: false, user: {}, showMePopup: false });
+		this.setState({
+			loggedIn: false,
+			user: {},
+			usersPosts: [],
+			showMePopup: false,
+		});
 		localStorage.removeItem("token");
 	};
 
-	addNewPost = (post) => {
-		this.setState((prevState) => ({
-			allPosts: [post, ...prevState.allPosts],
-		}));
-	};
-
 	render() {
-		const {
+		const { loggedIn, user, showMePopup, showCreatePostPopup } = this.state;
+		const value = {
 			loggedIn,
 			user,
-			allPosts,
 			showMePopup,
 			showCreatePostPopup,
-		} = this.state;
+			loginUser: this.loginUser,
+			logoutUser: this.logoutUser,
+			toggleMePopup: this.toggleMePopup,
+			toggleCreatePostPopup: this.toggleCreatePostPopup,
+			handlePopupLeave: this.handlePopupLeave,
+			addNewPost: this.addNewPost,
+		};
 		return (
-			<UserContext.Provider
-				value={{
-					loggedIn,
-					user,
-					allPosts,
-					showMePopup,
-					showCreatePostPopup,
-					loginUser: this.loginUser,
-					logoutUser: this.logoutUser,
-					toggleMePopup: this.toggleMePopup,
-					toggleCreatePostPopup: this.toggleCreatePostPopup,
-					handlePopupLeave: this.handlePopupLeave,
-					addNewPost: this.addNewPost,
-				}}
-			>
+			<UserContext.Provider value={value}>
 				<div
 					className='App'
 					style={{
@@ -119,7 +101,6 @@ class App extends Component {
 				>
 					{loggedIn ? <Header /> : null}
 					<Routes />
-					{showCreatePostPopup ? <CreatePostPopup /> : null}
 				</div>
 			</UserContext.Provider>
 		);

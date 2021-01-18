@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import naya_willis from "./Images/naya_willis.jpg";
 import { Link } from "react-router-dom";
 import UserContext from "./Context/userContext";
 import "./Styles/MePopup.css";
@@ -8,6 +7,7 @@ class MePopup extends Component {
 	render() {
 		const { handlePopupLeave } = this.props;
 		const { logoutUser, user } = this.context;
+		console.log(user);
 		return (
 			<div
 				className='me_popup_wrapper animate__animated animate__fadeIn animate__faster'

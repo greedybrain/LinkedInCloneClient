@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Icon from "../../Common/Icon";
-import UserContext from "../../Context/userContext";
-import "../../Styles/PostFormToggler.css";
+import Icon from "../Common/Icon";
+import UserContext from "../Context/userContext";
+import "../Styles/PostFormToggler.css";
 
 class PostFormToggler extends Component {
 	render() {

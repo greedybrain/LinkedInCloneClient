@@ -73,7 +73,6 @@ class Login extends Component {
 							inputValue={this.state.password}
 							inputRequired={true}
 							handleChange={this.handleChange}
-							focus={true}
 						/>
 						<div className='submit_btn'>
 							<button type='submit'>Sign in</button>

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
-import Login from "./Entry/Login";
-import Signup from "./Entry/Signup";
+import Login from "./Auth/Login";
+import Signup from "./Auth/Signup";
 import Home from "./Home/Home";
 import UserContext from "./Context/userContext";
 

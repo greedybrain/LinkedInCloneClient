@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Icon from "./Common/Icon";
-import UserImage from "./Common/UserImage";
-import UserContext from "./Context/userContext";
-import "./Styles/CreatePostPopup.css";
-import axios from "./utils/axios_configs";
+import Icon from "../Common/Icon";
+import UserImage from "../Common/UserImage";
+import UserContext from "../Context/userContext";
+import "../Styles/CreatePostPopup.css";
+import axios from "../utils/axios_configs";
 
 class CreatePostPopup extends Component {
 	constructor(props) {
@@ -29,7 +29,8 @@ class CreatePostPopup extends Component {
 
 		const token = localStorage.getItem("token");
 		const { content } = this.state;
-		const { addNewPost, toggleCreatePostPopup } = this.context;
+		const { toggleCreatePostPopup } = this.context;
+		const { addNewPost } = this.props;
 		try {
 			const { data } = await axios.post(
 				"/posts",
