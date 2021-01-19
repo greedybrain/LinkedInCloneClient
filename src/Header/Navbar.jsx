@@ -75,7 +75,7 @@ class Navbar extends Component {
 						</li>
 					</NavLink>
 					<NavLink
-						to='/my-network'
+						to='/my_network'
 						onClick={this.handleNetworkClick}
 						style={networkClicked ? { color: "#000" } : null}
 					>

@@ -1,0 +1,54 @@
+div.user_post_options_wrapper {
+  position: absolute;
+  width: 350px;
+  background-color: #fff;
+  top: 40px;
+  right: 3px;
+  border-radius: 10px 0 10px 10px;
+  z-index: 101;
+  -webkit-box-shadow: 0px 0px 10px -2px #c7c7c7;
+  box-shadow: 0px 0px 10px -2px #c7c7c7;
+  padding: 5px 0;
+}
+
+div.user_post_options_wrapper div.user_post_options ul li.post_option {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 45px;
+  padding: 0 15px;
+  line-height: 1.1;
+  cursor: pointer;
+}
+
+div.user_post_options_wrapper div.user_post_options ul li.post_option:hover {
+  background-color: #b6bfc965;
+}
+
+div.user_post_options_wrapper div.user_post_options ul li.post_option i.slash {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+div.user_post_options_wrapper div.user_post_options ul li.post_option div.icon_wrapper {
+  width: 20px;
+  margin-right: 3px;
+}
+
+div.user_post_options_wrapper div.user_post_options ul li.post_option div.icon_wrapper i {
+  color: #00000099;
+  font-size: 1rem;
+}
+
+div.user_post_options_wrapper div.user_post_options ul li.post_option div.label div.label_name {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+div.user_post_options_wrapper div.user_post_options ul li.post_option div.label div.option_description {
+  font-size: 0.7rem;
+  color: #00000099;
+}

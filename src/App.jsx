@@ -8,7 +8,6 @@ import axios from "./utils/axios_configs";
 import Header from "./Header/Header";
 import Routes from "./Routes";
 import UserContext from "./Context/userContext";
-import CreatePostPopup from "./Post/CreatePostPopup";
 
 class App extends Component {
 	state = {
@@ -78,18 +77,26 @@ class App extends Component {
 	};
 
 	render() {
-		const { loggedIn, user, showMePopup, showCreatePostPopup } = this.state;
+		const {
+			loggedIn,
+			user,
+			usersPosts,
+			showMePopup,
+			showCreatePostPopup,
+			showUserPostOptions,
+		} = this.state;
 		const value = {
 			loggedIn,
 			user,
+			usersPosts,
 			showMePopup,
 			showCreatePostPopup,
+			showUserPostOptions,
 			loginUser: this.loginUser,
 			logoutUser: this.logoutUser,
 			toggleMePopup: this.toggleMePopup,
 			toggleCreatePostPopup: this.toggleCreatePostPopup,
 			handlePopupLeave: this.handlePopupLeave,
-			addNewPost: this.addNewPost,
 		};
 		return (
 			<UserContext.Provider value={value}>

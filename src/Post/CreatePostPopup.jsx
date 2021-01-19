@@ -11,6 +11,7 @@ class CreatePostPopup extends Component {
 
 		this.state = {
 			content: "",
+			avatar: "",
 			buttonDisabled: true,
 		};
 	}
@@ -19,9 +20,6 @@ class CreatePostPopup extends Component {
 		this.setState({
 			[event.target.name]: event.target.value,
 		});
-		const { content } = this.state;
-		if (content.length === 0) this.setState({ buttonDisabled: true });
-		if (content.length > 0) this.setState({ buttonDisabled: false });
 	};
 
 	handleSubmit = async (event) => {
@@ -41,6 +39,10 @@ class CreatePostPopup extends Component {
 					headers: { Authorization: `Bearer ${token}` },
 				}
 			);
+			const { data: image } = await axios.post("/users/me/avatar", {
+				avatar: this.state.avatar,
+			});
+			console.log(image);
 			addNewPost(data);
 			toggleCreatePostPopup();
 		} catch (error) {
@@ -90,8 +92,11 @@ class CreatePostPopup extends Component {
 										defaultValue={this.state.content}
 										autoFocus
 										onChange={this.handleChange}
+										style={{ border: "1px solid red" }}
+										rows={5}
 									/>
 								</div>
+								<div className='uploaded_image'></div>
 							</div>
 							<div className='add_hash_tags'>
 								<ul>
@@ -105,14 +110,22 @@ class CreatePostPopup extends Component {
 							<div className='body_footer'>
 								<div className='extras'>
 									<Icon name='fas fa-plus' />
-									<Icon name='far fa-image' />
+									<label htmlFor='image_upload'>
+										<Icon name='far fa-image' />
+									</label>
+									<input
+										type='file'
+										name='avatar'
+										value={this.state.image_url}
+										id='image_upload'
+										onChange={this.handleChange}
+										hidden
+									/>
 									<Icon name='fab fa-youtube' />
 									<Icon name='fas fa-file-alt' />
 								</div>
 								<div className='submit_btn'>
-									<button type='submit' disabled={this.state.buttonDisabled}>
-										Post
-									</button>
+									<button type='submit'>Post</button>
 								</div>
 							</div>
 						</form>

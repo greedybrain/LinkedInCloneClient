@@ -1,7 +1,7 @@
 import React from "react";
 import Post from "./Post";
 
-const Posts = ({ allPosts }) => {
+const Posts = ({ allPosts, deletePost, setInEditMode, getCurrentPost }) => {
 	return (
 		<div className='all_posts'>
 			{allPosts.map((post) => {
@@ -12,6 +12,9 @@ const Posts = ({ allPosts }) => {
 							"https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png"
 						}
 						post={post}
+						deletePost={deletePost}
+						setInEditMode={setInEditMode}
+						getCurrentPost={getCurrentPost}
 					/>
 				);
 			})}

@@ -5,7 +5,7 @@ import React, { useContext } from "react";
 import UserImage from "../Common/UserImage";
 import "../Styles/UserTab.css";
 import UserContext from "../Context/userContext";
-import MePopup from "../MePopup";
+import MePopup from "../Header/MePopup";
 
 const userImage = {
 	imageWrapper: {

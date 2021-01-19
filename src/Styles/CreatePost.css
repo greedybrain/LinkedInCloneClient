@@ -30,7 +30,7 @@ div.create_post_wrapper ul li {
 }
 
 div.create_post_wrapper ul li:hover {
-  background-color: #e9e7e7;
+  background-color: #c2cbd665;
   -webkit-transition: background-color ease-in 0.2s;
   transition: background-color ease-in 0.2s;
 }

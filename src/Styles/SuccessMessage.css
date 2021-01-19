@@ -1,0 +1,50 @@
+div.success_message_wrapper {
+  background-color: #fff;
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 10px -2px #c7c7c7;
+  box-shadow: 0px 0px 10px -2px #c7c7c7;
+}
+
+div.success_message_wrapper div.check_message_close {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 335px;
+  height: 50px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 15px;
+}
+
+div.success_message_wrapper div.check_message_close div.check_and_message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.success_message_wrapper div.check_message_close div.check_and_message div.icon_wrapper i {
+  font-size: 1.2rem;
+  color: green;
+}
+
+div.success_message_wrapper div.check_message_close div.check_and_message div.message {
+  margin-left: 7px;
+  font-size: 0.8rem;
+  color: #00000099;
+  position: relative;
+  bottom: 3px;
+}
+
+div.success_message_wrapper div.check_message_close div.close {
+  cursor: pointer;
+}
