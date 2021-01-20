@@ -1,11 +1,15 @@
-import React from 'react'
+import React from "react";
+import LinkedInNews from "./LinkedInNews";
+import "../Styles/HomeRight.css";
+import MostViewedCourses from "./MostViewedCourses";
 
 const HomeRight = () => {
-        return (
-                <div className="home_right_wrapper">
-                        HOME RIGHT INFO
-                </div>
-        )
-}
+	return (
+		<div className='home_right_wrapper'>
+			<LinkedInNews />
+			<MostViewedCourses />
+		</div>
+	);
+};
 
-export default HomeRight
+export default HomeRight;

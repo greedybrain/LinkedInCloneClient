@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import Icon from "../Common/Icon";
 import "../Styles/Post.css";
 import moment from "moment";
 import UserPostOptions from "./UserPostOptions";
+import ViewerPostOptions from "./ViewerPostOptions";
+import UserContext from "../Context/userContext";
 
-const Post = ({ image, post, deletePost, setInEditMode }) => {
+const Post = ({ image, post, deletePost, getCurrentPost, setEditMode }) => {
 	const [showUserPostOptions, setShowUserPostOptions] = useState(false);
+	const context = useContext(UserContext);
+	const { user } = context;
 
 	const toggleUserPostOptions = () => {
 		setShowUserPostOptions(!showUserPostOptions);
@@ -68,12 +72,24 @@ const Post = ({ image, post, deletePost, setInEditMode }) => {
 					</div>
 				</div>
 			</div>
+
 			{showUserPostOptions ? (
-				<UserPostOptions
-					handleUserOptionsLeave={handleUserOptionsLeave}
-					deletePost={deletePost}
-					post={post}
-				/>
+				user._id === post.user._id ? (
+					<UserPostOptions
+						toggleUserPostOptions={toggleUserPostOptions}
+						handleUserOptionsLeave={handleUserOptionsLeave}
+						deletePost={deletePost}
+						post={post}
+						getCurrentPost={getCurrentPost}
+						setEditMode={setEditMode}
+					/>
+				) : (
+					<ViewerPostOptions
+						post={post}
+						toggleUserPostOptions={toggleUserPostOptions}
+						handleUserOptionsLeave={handleUserOptionsLeave}
+					/>
+				)
 			) : null}
 		</div>
 	);

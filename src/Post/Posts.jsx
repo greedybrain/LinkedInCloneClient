@@ -1,7 +1,14 @@
 import React from "react";
 import Post from "./Post";
 
-const Posts = ({ allPosts, deletePost, setInEditMode, getCurrentPost }) => {
+const Posts = ({
+	allPosts,
+	deletePost,
+	editPost,
+	inEditMode,
+	setEditMode,
+	getCurrentPost,
+}) => {
 	return (
 		<div className='all_posts'>
 			{allPosts.map((post) => {
@@ -13,7 +20,8 @@ const Posts = ({ allPosts, deletePost, setInEditMode, getCurrentPost }) => {
 						}
 						post={post}
 						deletePost={deletePost}
-						setInEditMode={setInEditMode}
+						inEditMode={inEditMode}
+						setEditMode={setEditMode}
 						getCurrentPost={getCurrentPost}
 					/>
 				);

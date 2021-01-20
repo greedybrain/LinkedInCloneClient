@@ -12,13 +12,12 @@ class CreatePostPopup extends Component {
 		this.state = {
 			content: "",
 			avatar: "",
-			buttonDisabled: true,
 		};
 	}
 
 	handleChange = (event) => {
 		this.setState({
-			[event.target.name]: event.target.value,
+			content: event.target.value,
 		});
 	};
 
@@ -39,15 +38,23 @@ class CreatePostPopup extends Component {
 					headers: { Authorization: `Bearer ${token}` },
 				}
 			);
-			const { data: image } = await axios.post("/users/me/avatar", {
-				avatar: this.state.avatar,
-			});
-			console.log(image);
 			addNewPost(data);
 			toggleCreatePostPopup();
 		} catch (error) {
 			console.log(error.message);
 		}
+	};
+
+	handleEditSubmit = async (event) => {
+		event.preventDefault();
+
+		const { toggleCreatePostPopup } = this.context;
+		const { currentPost } = this.props;
+		let { content } = currentPost;
+		content = this.state.content;
+		this.props.editPost(currentPost, content);
+		toggleCreatePostPopup();
+		this.props.setEditMode(false);
 	};
 
 	render() {
@@ -83,16 +90,26 @@ class CreatePostPopup extends Component {
 								</div>
 							</div>
 						</div>
-						<form onSubmit={this.handleSubmit}>
+						<form
+							onSubmit={
+								!this.props.inEditMode
+									? this.handleSubmit
+									: this.handleEditSubmit
+							}
+							encType='multipart/form-data'
+						>
 							<div className='body_post_area'>
 								<div className='post_field'>
 									<textarea
 										name='content'
 										placeholder='What do you want to talk about?'
-										defaultValue={this.state.content}
+										defaultValue={
+											!this.props.inEditMode
+												? this.state.content
+												: this.props.currentPost.content
+										}
 										autoFocus
 										onChange={this.handleChange}
-										style={{ border: "1px solid red" }}
 										rows={5}
 									/>
 								</div>

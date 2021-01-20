@@ -1,0 +1,54 @@
+div.user_post_options_wrapper {
+	position: absolute;
+	width: 350px;
+	background-color: #fff;
+	top: 40px;
+	right: 3px;
+	border-radius: 10px 0 10px 10px;
+	z-index: 101;
+	-webkit-box-shadow: 0px 0px 10px -2px rgba(199, 199, 199, 1);
+	-moz-box-shadow: 0px 0px 10px -2px rgba(199, 199, 199, 1);
+	box-shadow: 0px 0px 10px -2px rgba(199, 199, 199, 1);
+	padding: 5px 0;
+
+	div.user_post_options {
+		ul {
+			li.post_option {
+				display: flex;
+				align-items: center;
+				height: 45px;
+				padding: 0 15px;
+				line-height: 1.1;
+				cursor: pointer;
+
+				&:hover {
+					background-color: #b6bfc965;
+				}
+
+				i.slash {
+					transform: rotateY(180deg);
+				}
+
+				div.icon_wrapper {
+					width: 20px;
+					margin-right: 3px;
+					i {
+						color: #00000099;
+						font-size: 1rem;
+					}
+				}
+
+				div.label {
+					div.label_name {
+						font-size: 0.8rem;
+						font-weight: 600;
+					}
+					div.option_description {
+						font-size: 0.7rem;
+						color: #00000099;
+					}
+				}
+			}
+		}
+	}
+}

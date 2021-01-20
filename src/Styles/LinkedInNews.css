@@ -1,0 +1,79 @@
+div.linked_in_news_wrapper {
+  padding: 10px 0;
+  border-radius: 10px;
+  background-color: #fff;
+  border: 1px solid #dadada;
+}
+
+div.linked_in_news_wrapper div.linked_in_news div.title_and_info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 15px;
+}
+
+div.linked_in_news_wrapper div.linked_in_news div.title_and_info h5 {
+  font-size: 0.9rem;
+}
+
+div.linked_in_news_wrapper div.linked_in_news div.title_and_info i {
+  font-size: 0.8rem;
+  color: #00000099;
+}
+
+div.linked_in_news_wrapper div.linked_in_news ul {
+  margin-top: 5px;
+}
+
+div.linked_in_news_wrapper div.linked_in_news ul li.topic {
+  padding: 3px 15px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+div.linked_in_news_wrapper div.linked_in_news ul li.topic:hover {
+  background-color: #e7e7e7;
+}
+
+div.linked_in_news_wrapper div.linked_in_news ul li.topic h5 {
+  font-size: 0.8rem;
+}
+
+div.linked_in_news_wrapper div.linked_in_news ul li.topic div.time_and_readers {
+  font-size: 0.7rem;
+  color: #00000099;
+}
+
+div.linked_in_news_wrapper div.linked_in_news div.special_report {
+  padding: 0 15px;
+}
+
+div.linked_in_news_wrapper div.linked_in_news div.special_report div.report {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 3px 5px;
+  margin: 5px auto 5px auto;
+  border-radius: 5px;
+  background-color: #ff91918f;
+  height: 25px;
+  color: #00000099;
+}
+
+div.linked_in_news_wrapper div.linked_in_news div.special_report i {
+  margin-left: 5px;
+  font-size: 1.1rem;
+  position: relative;
+  top: 2px;
+}

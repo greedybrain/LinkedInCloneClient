@@ -6,10 +6,12 @@ const SuccessMessage = ({
 	setSuccessMessage,
 	setDidDeletePost,
 	setDidCreatePost,
+	setDidEditPost,
 }) => {
 	const resetSuccessMessageModal = () => {
-		setDidDeletePost(false);
 		setDidCreatePost(false);
+		setDidEditPost(false);
+		setDidDeletePost(false);
 		setSuccessMessage("");
 	};
 

@@ -17,7 +17,7 @@ class Home extends Component {
 					<div className='home_page_body'>
 						<HomeLeft />
 						<HomeFeed />
-						{/* <HomeRight /> */}
+						<HomeRight />
 					</div>
 				</div>
 			</div>

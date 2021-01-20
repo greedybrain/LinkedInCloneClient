@@ -16,22 +16,34 @@ const Routes = () => {
 			<Route
 				exact
 				path='/notifications'
-				render={(routerProps) => <Notifications {...routerProps} />}
+				render={(routerProps) =>
+					user.loggedIn ? (
+						<Redirect to='/' />
+					) : (
+						<Notifications {...routerProps} />
+					)
+				}
 			/>
 			<Route
 				exact
 				path='/messaging'
-				render={(routerProps) => <Messaging {...routerProps} />}
+				render={(routerProps) =>
+					user.loggedIn ? <Redirect to='/' /> : <Messaging {...routerProps} />
+				}
 			/>
 			<Route
 				exact
 				path='/jobs'
-				render={(routerProps) => <Jobs {...routerProps} />}
+				render={(routerProps) =>
+					user.loggedIn ? <Redirect to='/' /> : <Jobs {...routerProps} />
+				}
 			/>
 			<Route
 				exact
 				path='/my_network'
-				render={(routerProps) => <MyNetwork {...routerProps} />}
+				render={(routerProps) =>
+					user.loggedIn ? <Redirect to='/' /> : <MyNetwork {...routerProps} />
+				}
 			/>
 			<Route
 				exact

@@ -1,0 +1,66 @@
+div.most_viewed_courses_wrapper {
+	padding: 10px 0;
+	border-radius: 10px;
+	background-color: #fff;
+	border: 1px solid #dadada;
+	margin-top: 5px;
+
+	div.most_viewed_courses {
+		div.title_and_info {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0 15px;
+
+			h5 {
+				font-size: 0.9rem;
+			}
+
+			i {
+				font-size: 0.8rem;
+				color: #00000099;
+			}
+		}
+		ul {
+			margin-top: 5px;
+			li.topic {
+				padding: 3px 15px;
+				line-height: 1.5;
+				cursor: pointer;
+
+				&:hover {
+					background-color: #e7e7e7;
+				}
+				h5 {
+					font-size: 0.8rem;
+				}
+				div.time_and_readers {
+					font-size: 0.7rem;
+					color: #00000099;
+				}
+			}
+		}
+
+		div.special_report {
+			padding: 0 15px;
+			div.report {
+				display: flex;
+				align-items: center;
+				font-size: 0.8rem;
+				font-weight: 600;
+				padding: 3px 5px;
+				margin: 5px auto 5px auto;
+				border-radius: 5px;
+				height: 25px;
+				color: #00000099;
+			}
+
+			i {
+				margin-left: 5px;
+				font-size: 1.1rem;
+				position: relative;
+				top: 2px;
+			}
+		}
+	}
+}
