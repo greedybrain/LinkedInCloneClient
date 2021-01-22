@@ -4,10 +4,10 @@ import { NavLink } from "react-router-dom";
 
 //! Custom Modules / Components
 import Icon from "../Common/Icon";
-import "../Styles/Navbar.css";
 import TryPremium from "./TryPremium";
 import UserTab from "./UserTab";
 import WorkTab from "./WorkTab";
+import "../Styles/Navbar.css";
 class Navbar extends Component {
 	state = {
 		homeClicked: true,

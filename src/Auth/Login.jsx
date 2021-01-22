@@ -1,10 +1,15 @@
+//! Core Modules
 import React, { Component } from "react";
+
+//! NPM Modules
 import { Link } from "react-router-dom";
+
+//! Custom Modules
+import "../Styles/Login.css";
 import DivWithInput from "../Common/DivWithInput";
 import Icon from "../Common/Icon";
-import "../Styles/Login.css";
-import axios from "../utils/axios_configs";
 import UserContext from "../Context/userContext";
+import loginService from "../services/login";
 
 class Login extends Component {
 	state = {
@@ -21,18 +26,12 @@ class Login extends Component {
 	handleSubmit = async (event) => {
 		event.preventDefault();
 
-		const { email, password } = this.state;
-		try {
-			const { data } = await axios.post("/users/login", {
-				email,
-				password,
-			});
-			if (data.user) this.context.loginUser(data.user);
-			localStorage.setItem("token", data.tokenValue);
-			this.props.history.replace("/feed");
-		} catch (error) {
-			console.log(error.message);
-		}
+		const user = this.state;
+		const { loginAction } = this.context.actions;
+
+		//! loginAction loads user to state, loginService sends login post request
+		loginService(loginAction, user);
+		this.props.history.replace("/feed");
 	};
 
 	render() {

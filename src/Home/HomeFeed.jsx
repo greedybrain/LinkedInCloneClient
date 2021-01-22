@@ -1,13 +1,19 @@
+//! Core Modules
 import React, { Component } from "react";
+
+//! Custom Modules
 import CreatePost from "../Post/CreatePost";
-import "../Styles/HomeFeed.css";
 import Posts from "../Post/Posts";
-import axios from "../utils/axios_configs";
 import CreatePostPopup from "../Post/CreatePostPopup";
-import UserContext from "../Context/userContext";
 import SuccessMessage from "../SuccessMessage";
+import UserContext from "../Context/userContext";
+import getAllPostsService from "../services/get_all_posts";
+import addPostService from "../services/add_post";
+import editPostService from "../services/edit_post";
+import deletePostService from "../services/delete_post";
+import "../Styles/HomeFeed.css";
 import "../Styles/SuccessMessage.css";
-import WhoLiked from "../Post/WhoLiked";
+import axios from "../utils/axios_configs";
 
 class HomeFeed extends Component {
 	state = {
@@ -20,26 +26,19 @@ class HomeFeed extends Component {
 		inEditMode: false,
 	};
 
-	getAllPosts = async () => {
-		const token = localStorage.getItem("token");
-		try {
-			const { data } = await axios("/posts", {
-				headers: { Authorization: `Bearer ${token}` },
-			});
-			data.reverse();
-			this.setState({ allPosts: data });
-		} catch (error) {
-			console.log(error.message);
-		}
+	getAllPostsAction = async () => {
+		const data = await getAllPostsService();
+		data.reverse();
+		this.setState({ allPosts: data });
 	};
 
 	componentDidMount = async () => {
-		await this.getAllPosts();
+		await this.getAllPostsAction();
 	};
 
 	componentDidUpdate = async (prevProps, prevState, snapshot) => {
 		if (this.state.allPosts !== prevState.allPosts) {
-			await this.getAllPosts();
+			await this.getAllPostsAction();
 		}
 	};
 
@@ -47,7 +46,8 @@ class HomeFeed extends Component {
 		this.setState({ currentPost: post });
 	};
 
-	addNewPost = (post) => {
+	addPostAction = async (post) => {
+		console.log(post, "ADDED POST");
 		this.setState((prevState) => ({
 			allPosts: [post, ...prevState.allPosts],
 			didCreatePost: true,
@@ -55,47 +55,17 @@ class HomeFeed extends Component {
 		}));
 	};
 
-	editPost = async (currPost, newContent) => {
-		const { user } = this.context;
-		if (currPost.user._id !== user._id)
-			return console.log("This post does not belong to you");
-		const token = localStorage.getItem("token");
-		let { content } = currPost;
-		content = newContent;
-		try {
-			const { data } = await axios.patch(
-				`/posts/${currPost._id}`,
-				{
-					content,
-				},
-				{
-					headers: { Authorization: `Bearer ${token}` },
-				}
-			);
-			console.log(data);
-			this.setState({ allLikes: data });
-		} catch (error) {
-			console.log(error.message);
-		}
+	editPostAction = async (post) => {
+		console.log(post, "EDITED POST");
 		this.setState({
 			didEditPost: true,
 			successMessage: "Post updated successfully",
 		});
 	};
 
-	deletePost = async (currPost) => {
-		const { user } = this.context;
-		if (currPost.user._id !== user._id)
-			return console.log("This post does not belong to you");
-		const token = localStorage.getItem("token");
-		try {
-			const { data } = await axios.delete(`/posts/${currPost._id}`, {
-				headers: { Authorization: `Bearer ${token}` },
-			});
-			console.log(data);
-		} catch (error) {
-			console.log(error.message);
-		}
+	deletePostAction = async (currPost) => {
+		const post = await deletePostService(this.context, currPost);
+		console.log(post, "DELETED");
 		const postsCopy = [...this.state.allPosts];
 		const filteredPosts = postsCopy.filter((post) => post._id !== currPost._id);
 		this.setState({
@@ -112,7 +82,7 @@ class HomeFeed extends Component {
 	setEditMode = (bool) => this.setState({ inEditMode: bool });
 
 	render() {
-		const { showCreatePostPopup } = this.context;
+		const { showCreatePostPopup } = this.context.get;
 		const {
 			allPosts,
 			allLikes,
@@ -129,8 +99,8 @@ class HomeFeed extends Component {
 
 				{showCreatePostPopup ? (
 					<CreatePostPopup
-						addNewPost={this.addNewPost}
-						editPost={this.editPost}
+						addPostAction={this.addPostAction}
+						editPostAction={this.editPostAction}
 						currentPost={currentPost}
 						inEditMode={inEditMode}
 						setEditMode={this.setEditMode}
@@ -139,8 +109,8 @@ class HomeFeed extends Component {
 				<Posts
 					allPosts={allPosts}
 					allLikes={allLikes}
-					deletePost={this.deletePost}
-					editPost={this.editPost}
+					deletePostAction={this.deletePostAction}
+					editPostAction={this.editPostAction}
 					getCurrentPost={this.getCurrentPost}
 					inEditMode={inEditMode}
 					setEditMode={this.setEditMode}

@@ -1,17 +1,15 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import Post from "./Post";
-import WhoLiked from "./WhoLiked";
 
 const Posts = ({
 	allPosts,
 	allLikes,
-	deletePost,
+	deletePostAction,
 	inEditMode,
 	setEditMode,
 	getCurrentPost,
 	getAllPosts,
 }) => {
-
 	return (
 		<div className='all_posts'>
 			{allPosts.map((post) => {
@@ -22,7 +20,7 @@ const Posts = ({
 								"https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png"
 							}
 							post={post}
-							deletePost={deletePost}
+							deletePostAction={deletePostAction}
 							inEditMode={inEditMode}
 							setEditMode={setEditMode}
 							getCurrentPost={getCurrentPost}

@@ -11,8 +11,8 @@ import "../Styles/HomeLeftUserInfo.css";
 import axios from "../utils/axios_configs";
 
 const HomeLeftUserInfo = () => {
-	const context = useContext(UserContext);
-	const { user } = context;
+	const { get } = useContext(UserContext);
+	const { user } = get;
 	const [avatar, setAvatar] = useState(null);
 
 	const handleChange = async (event) => {

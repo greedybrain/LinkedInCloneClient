@@ -1,23 +1,28 @@
+//! Core Modules
 import React, { useContext } from "react";
+
+//! NPM Modules
 import { Redirect, Route, Switch } from "react-router-dom";
+
+//! Custom Modules
 import Login from "./Auth/Login";
 import Signup from "./Auth/Signup";
 import Home from "./Home/Home";
-import UserContext from "./Context/userContext";
-import Notifications from "./Notifications";
-import Messaging from "./Messaging";
-import Jobs from "./Jobs";
 import MyNetwork from "./MyNetwork";
+import Jobs from "./Jobs";
+import Messaging from "./Messaging";
+import Notifications from "./Notifications";
+import UserContext from "./Context/userContext";
 
 const Routes = () => {
-	const user = useContext(UserContext);
+	const { get } = useContext(UserContext);
 	return (
 		<Switch>
 			<Route
 				exact
 				path='/notifications'
 				render={(routerProps) =>
-					!user.loggedIn ? (
+					!get.loggedIn ? (
 						<Redirect to='/login' />
 					) : (
 						<Notifications {...routerProps} />
@@ -28,7 +33,7 @@ const Routes = () => {
 				exact
 				path='/messaging'
 				render={(routerProps) =>
-					!user.loggedIn ? (
+					!get.loggedIn ? (
 						<Redirect to='/login' />
 					) : (
 						<Messaging {...routerProps} />
@@ -39,14 +44,14 @@ const Routes = () => {
 				exact
 				path='/jobs'
 				render={(routerProps) =>
-					!user.loggedIn ? <Redirect to='/login' /> : <Jobs {...routerProps} />
+					!get.loggedIn ? <Redirect to='/login' /> : <Jobs {...routerProps} />
 				}
 			/>
 			<Route
 				exact
 				path='/my_network'
 				render={(routerProps) =>
-					!user.loggedIn ? (
+					!get.loggedIn ? (
 						<Redirect to='/login' />
 					) : (
 						<MyNetwork {...routerProps} />
@@ -57,21 +62,21 @@ const Routes = () => {
 				exact
 				path='/signup'
 				render={(routerProps) =>
-					user.loggedIn ? <Redirect to='/' /> : <Signup {...routerProps} />
+					get.loggedIn ? <Redirect to='/' /> : <Signup {...routerProps} />
 				}
 			/>
 			<Route
 				exact
 				path='/login'
 				render={(routerProps) =>
-					user.loggedIn ? <Redirect to='/' /> : <Login {...routerProps} />
+					get.loggedIn ? <Redirect to='/' /> : <Login {...routerProps} />
 				}
 			/>
 			<Route
 				exact
 				path='/feed'
 				render={(routerProps) =>
-					!user.loggedIn ? <Redirect to='/login' /> : <Home {...routerProps} />
+					!get.loggedIn ? <Redirect to='/login' /> : <Home {...routerProps} />
 				}
 			/>
 			<Redirect from='/' to='/feed' />

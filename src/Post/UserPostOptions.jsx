@@ -5,14 +5,15 @@ import "../Styles/UserPostOptions.css";
 
 class UserPostOptions extends Component {
 	handleEdit = () => {
-		this.props.toggleUserPostOptions();
-		this.props.setEditMode(true)
-		this.props.getCurrentPost(this.props.post);
-		this.context.toggleCreatePostPopup();
+		const { toggleUserPostOptions, setEditMode, getCurrentPost } = this.props;
+		toggleUserPostOptions();
+		setEditMode(true);
+		getCurrentPost(this.props.post);
+		this.context.actions.toggleCreatePostPopup();
 	};
 
 	render() {
-		const { handleUserOptionsLeave, deletePost, post } = this.props;
+		const { handleUserOptionsLeave, deletePostAction, post } = this.props;
 
 		return (
 			<div
@@ -34,7 +35,7 @@ class UserPostOptions extends Component {
 								<div className='label_name'>Edit post</div>
 							</div>
 						</li>
-						<li className='post_option' onClick={() => deletePost(post)}>
+						<li className='post_option' onClick={() => deletePostAction(post)}>
 							<Icon name='fas fa-trash-alt' />
 							<div className='label'>
 								<div className='label_name'>Delete post</div>

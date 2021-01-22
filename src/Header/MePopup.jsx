@@ -1,13 +1,19 @@
+//! Core Modules
 import React, { Component } from "react";
+
+//! NPM Modules
 import { Link } from "react-router-dom";
+
+//! Custom Modules
 import UserContext from "../Context/userContext";
 import "../Styles/MePopup.css";
 
 class MePopup extends Component {
 	render() {
-		const { handlePopupLeave } = this.props;
-		const { logoutUser, user } = this.context;
-		console.log(user);
+		const { get, actions } = this.context;
+		const { user } = get;
+		const { logoutAction, handlePopupLeave } = actions;
+
 		return (
 			<div
 				className='me_popup_wrapper animate__animated animate__fadeIn animate__faster'
@@ -56,7 +62,7 @@ class MePopup extends Component {
 					</ul>
 				</div>
 				<div className='popup_footer'>
-					<Link to='#' onClick={logoutUser}>
+					<Link to='#' onClick={logoutAction}>
 						Sign Out
 					</Link>
 				</div>

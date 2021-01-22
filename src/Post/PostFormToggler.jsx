@@ -5,7 +5,7 @@ import "../Styles/PostFormToggler.css";
 
 class PostFormToggler extends Component {
 	render() {
-		const { toggleCreatePostPopup } = this.context;
+		const { toggleCreatePostPopup } = this.context.actions;
 		return (
 			<div className='post_form_toggler' onClick={toggleCreatePostPopup}>
 				<Icon name='far fa-edit' />

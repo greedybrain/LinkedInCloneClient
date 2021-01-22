@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import DivWithInput from "../Common/DivWithInput";
 import Icon from "../Common/Icon";
 import "../Styles/Signup.css";
-import axios from "../utils/axios_configs";
 import UserContext from "../Context/userContext";
+import signupService from "../services/signup";
 
 class Signup extends Component {
 	state = {
@@ -22,23 +22,17 @@ class Signup extends Component {
 
 	handleSubmit = async (event) => {
 		event.preventDefault();
-		const { name, email, headline, password } = this.state;
-		try {
-			const { data } = await axios.post("/users", {
-				name,
-				email,
-				headline,
-				password,
-			});
-			if (data.user) this.context.loginUser(data.user);
-			localStorage.setItem("token", data.tokenValue);
-			this.props.history.replace("/feed");
-		} catch (error) {
-			console.log(error.message);
-		}
+
+		const user = this.state;
+		const { signupAction } = this.context;
+
+		//! signupAction loads user to state, signupService sends signup post request
+		signupService(signupAction, user);
+		this.props.history.replace("/feed");
 	};
 
 	render() {
+		const { name, email, password, headline } = this.state;
 		return (
 			<div className='signup_page_wrapper'>
 				<div className='form_area_wrapper'>
@@ -57,7 +51,7 @@ class Signup extends Component {
 							specialClass='name_field fields'
 							inputType='text'
 							inputName='name'
-							inputValue={this.state.name}
+							inputValue={name}
 							inputRequired={true}
 							handleChange={this.handleChange}
 							focus={true}
@@ -67,7 +61,7 @@ class Signup extends Component {
 							specialClass='email_field fields'
 							inputType='text'
 							inputName='email'
-							inputValue={this.state.email}
+							inputValue={email}
 							inputRequired={true}
 							handleChange={this.handleChange}
 						/>
@@ -76,7 +70,7 @@ class Signup extends Component {
 							specialClass='headline_field fields'
 							inputType='text'
 							inputName='headline'
-							inputValue={this.state.headline}
+							inputValue={headline}
 							inputRequired={true}
 							handleChange={this.handleChange}
 						/>
@@ -85,7 +79,7 @@ class Signup extends Component {
 							specialClass='password_field fields'
 							inputType='password'
 							inputName='password'
-							inputValue={this.state.password}
+							inputValue={password}
 							inputRequired={true}
 							handleChange={this.handleChange}
 						/>

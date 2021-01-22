@@ -2,12 +2,14 @@
 import React, { Component } from "react";
 
 //! NPM Modules
-import axios from "./utils/axios_configs";
 
 //! Custom Modules/ Components
 import Header from "./Header/Header";
 import Routes from "./Routes";
 import UserContext from "./Context/userContext";
+import getAllUsersService from "./services/get_users";
+import getCurrentUserService from "./services/get_current_user";
+import logoutService from "./services/logout";
 
 class App extends Component {
 	state = {
@@ -18,40 +20,41 @@ class App extends Component {
 		showCreatePostPopup: false,
 	};
 
-	getAllUsers = async () => {
-		const token = localStorage.getItem("token");
-		try {
-			const { data } = await axios("/users", {
-				headers: { Authorization: `Bearer ${token}` },
-			});
-			this.setState({
-				allUsers: data,
-			});
-		} catch (error) {
-			console.log(error.message);
-		}
+	componentDidMount = async () => {
+		await this.getCurrentUserAction();
+		await this.getAllUsersAction();
 	};
 
-	getCurrentUser = async () => {
-		const token = localStorage.getItem("token");
-		try {
-			const { data } = await axios("/users/me", {
-				headers: { Authorization: `Bearer ${token}` },
-			});
-			if (data.data._id)
-				this.setState({
-					loggedIn: true,
-					user: data.data,
-				});
-		} catch (error) {
-			console.log(error.message);
-		}
+	getAllUsersAction = async () => {
+		const data = await getAllUsersService();
+		this.setState({ allUsers: data });
 	};
 
-	async componentDidMount() {
-		await this.getAllUsers();
-		await this.getCurrentUser();
-	}
+	getCurrentUserAction = async () => {
+		const data = await getCurrentUserService();
+		this.setState({
+			loggedIn: true,
+			user: data.data,
+		});
+	};
+
+	loginAction = (user) => {
+		this.setState({ loggedIn: true, user });
+	};
+
+	signupAction = (user) => {
+		this.setState({ loggedIn: true, user });
+	};
+
+	logoutAction = async () => {
+		logoutService();
+		this.setState({
+			loggedIn: false,
+			user: {},
+			usersPosts: [],
+			showMePopup: false,
+		});
+	};
 
 	toggleMePopup = () => {
 		this.setState((prevState) => ({
@@ -71,25 +74,6 @@ class App extends Component {
 		});
 	};
 
-	loginUser = (user) => {
-		this.setState({ loggedIn: true, user });
-	};
-
-	logoutUser = async () => {
-		try {
-			await axios.post("/users/logout");
-		} catch (error) {
-			console.log(error.message);
-		}
-		this.setState({
-			loggedIn: false,
-			user: {},
-			usersPosts: [],
-			showMePopup: false,
-		});
-		localStorage.removeItem("token");
-	};
-
 	render() {
 		const {
 			loggedIn,
@@ -100,17 +84,22 @@ class App extends Component {
 			showUserPostOptions,
 		} = this.state;
 		const value = {
-			loggedIn,
-			user,
-			allUsers,
-			showMePopup,
-			showCreatePostPopup,
-			showUserPostOptions,
-			loginUser: this.loginUser,
-			logoutUser: this.logoutUser,
-			toggleMePopup: this.toggleMePopup,
-			toggleCreatePostPopup: this.toggleCreatePostPopup,
-			handlePopupLeave: this.handlePopupLeave,
+			actions: {
+				loginAction: this.loginAction,
+				signupAction: this.signupAction,
+				logoutAction: this.logoutAction,
+				toggleMePopup: this.toggleMePopup,
+				toggleCreatePostPopup: this.toggleCreatePostPopup,
+				handlePopupLeave: this.handlePopupLeave,
+			},
+			get: {
+				loggedIn,
+				user,
+				allUsers,
+				showMePopup,
+				showCreatePostPopup,
+				showUserPostOptions,
+			},
 		};
 		return (
 			<UserContext.Provider value={value}>

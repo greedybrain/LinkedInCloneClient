@@ -3,7 +3,8 @@ import Icon from "../Common/Icon";
 import UserImage from "../Common/UserImage";
 import UserContext from "../Context/userContext";
 import "../Styles/CreatePostPopup.css";
-import axios from "../utils/axios_configs";
+import addPostService from "../services/add_post";
+import editPostService from "../services/edit_post";
 
 class CreatePostPopup extends Component {
 	constructor(props) {
@@ -33,37 +34,27 @@ class CreatePostPopup extends Component {
 	handleSubmit = async (event) => {
 		event.preventDefault();
 
-		const token = localStorage.getItem("token");
 		const { content } = this.state;
-		const { toggleCreatePostPopup } = this.context;
-		const { addNewPost } = this.props;
-		try {
-			const { data } = await axios.post(
-				"/posts",
-				{
-					content,
-				},
-				{
-					headers: { Authorization: `Bearer ${token}` },
-				}
-			);
-			addNewPost(data);
-			toggleCreatePostPopup();
-		} catch (error) {
-			console.log(error.message);
-		}
+		const { toggleCreatePostPopup } = this.context.actions;
+		const { addPostAction } = this.props;
+
+		const post = await addPostService(content);
+		addPostAction(post);
+		toggleCreatePostPopup();
 	};
 
 	handleEditSubmit = async (event) => {
 		event.preventDefault();
 
-		const { toggleCreatePostPopup } = this.context;
-		const { currentPost } = this.props;
+		const { toggleCreatePostPopup } = this.context.actions;
+		const { currentPost, editPostAction, setEditMode } = this.props;
 		let { content } = currentPost;
 		content = this.state.content;
-		this.props.editPost(currentPost, content);
+
+		const post = await editPostService(this.context, currentPost, content);
+		editPostAction(post);
+		setEditMode(false);
 		toggleCreatePostPopup();
-		this.props.setEditMode(false);
 	};
 
 	render() {
@@ -75,7 +66,9 @@ class CreatePostPopup extends Component {
 				},
 			},
 		};
-		const { toggleCreatePostPopup, user } = this.context;
+		const { actions, get } = this.context;
+		const { user } = get;
+		const { toggleCreatePostPopup } = actions;
 		return (
 			<div className='create_post_popup animate__animated animate__fadeIn animate__faster'>
 				<div className='create_post_popup_wrapper'>

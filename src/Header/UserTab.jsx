@@ -3,9 +3,9 @@ import React, { useContext } from "react";
 
 //! Cutome Modules/ Components
 import UserImage from "../Common/UserImage";
-import "../Styles/UserTab.css";
-import UserContext from "../Context/userContext";
 import MePopup from "../Header/MePopup";
+import UserContext from "../Context/userContext";
+import "../Styles/UserTab.css";
 
 const userImage = {
 	imageWrapper: {
@@ -17,8 +17,9 @@ const userImage = {
 };
 
 const UserTab = () => {
-	const context = useContext(UserContext);
-	const { toggleMePopup, showMePopup, handlePopupLeave } = context;
+	const { actions, get } = useContext(UserContext);
+	const { showMePopup } = get;
+	const { toggleMePopup, handlePopupLeave } = actions;
 
 	return (
 		<div className='user_tab_wrapper' onClick={toggleMePopup}>

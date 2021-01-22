@@ -12,17 +12,16 @@ import CommentForm from "./CommentForm";
 const Post = ({
 	image,
 	post,
-	deletePost,
+	deletePostAction,
 	getCurrentPost,
 	setEditMode,
-	getAllPosts,
 }) => {
 	const [showUserPostOptions, setShowUserPostOptions] = useState(false);
 	const [showLikes, setShowLikes] = useState(false);
 	const [liked, setLiked] = useState(false);
 	const [showCommentForm, setShowCommentForm] = useState(false);
-	const context = useContext(UserContext);
-	const { user } = context;
+	const { get } = useContext(UserContext);
+	const { user } = get;
 
 	const toggleUserPostOptions = () => {
 		setShowUserPostOptions(!showUserPostOptions);
@@ -162,7 +161,7 @@ const Post = ({
 						<UserPostOptions
 							toggleUserPostOptions={toggleUserPostOptions}
 							handleUserOptionsLeave={handleUserOptionsLeave}
-							deletePost={deletePost}
+							deletePostAction={deletePostAction}
 							post={post}
 							getCurrentPost={getCurrentPost}
 							setEditMode={setEditMode}
