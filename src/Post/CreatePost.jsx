@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PostFormToggler from "./PostFormToggler";
-import "../Styles/CreatePost.css";
 import Icon from "../Common/Icon";
+import "../Styles/CreatePost.css";
 
 export default class CreatePost extends Component {
 	render() {

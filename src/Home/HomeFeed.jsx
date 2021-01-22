@@ -8,12 +8,9 @@ import CreatePostPopup from "../Post/CreatePostPopup";
 import SuccessMessage from "../SuccessMessage";
 import UserContext from "../Context/userContext";
 import getAllPostsService from "../services/get_all_posts";
-import addPostService from "../services/add_post";
-import editPostService from "../services/edit_post";
 import deletePostService from "../services/delete_post";
 import "../Styles/HomeFeed.css";
 import "../Styles/SuccessMessage.css";
-import axios from "../utils/axios_configs";
 
 class HomeFeed extends Component {
 	state = {

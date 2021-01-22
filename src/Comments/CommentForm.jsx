@@ -5,7 +5,6 @@ class CommentForm extends Component {
 	state = {
 		content: "",
 		height: 40,
-		charCount: 0,
 		showPostButton: false,
 	};
 
@@ -13,32 +12,14 @@ class CommentForm extends Component {
 		this.setState({
 			[event.target.name]: event.target.value,
 		});
-
 		if (event.target.value.length > 0) {
 			this.setState({
 				showPostButton: true,
 			});
-		}
-		if (event.target.value.length === 0) {
+		} else {
 			this.setState({
 				height: 40,
 				showPostButton: false,
-			});
-		}
-		//! ===================
-		if (event.target.value.length === 136) {
-			this.setState({
-				height: 80,
-			});
-		}
-		if (event.target.value.length === 272) {
-			this.setState({
-				height: 120,
-			});
-		}
-		if (event.target.value.length === 408) {
-			this.setState({
-				height: 160,
 			});
 		}
 	};
@@ -65,6 +46,8 @@ class CommentForm extends Component {
 									required
 									defaultValue={this.state.content}
 									onChange={this.handleChange}
+									wrap='hard'
+									rows='1'
 								/>
 							</div>
 						</div>

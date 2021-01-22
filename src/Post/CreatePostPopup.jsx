@@ -12,7 +12,6 @@ class CreatePostPopup extends Component {
 
 		this.state = {
 			content: "",
-			avatar: "",
 			disabled: true,
 		};
 	}

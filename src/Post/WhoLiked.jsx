@@ -5,9 +5,8 @@ import "../Styles/WhoLiked.css";
 
 class WhoLiked extends Component {
 	getUsersWhoLiked = () => {
-		const { post } = this.props;
-		const usersIds = post.likes.map((like) => like.user);
-		const { allUsers } = this.context;
+		const usersIds = this.props.post.likes.map((like) => like.user);
+		const { allUsers } = this.context.get;
 		const usersWhoLiked = [];
 		allUsers.forEach((user) => {
 			if (usersIds.includes(user._id)) {

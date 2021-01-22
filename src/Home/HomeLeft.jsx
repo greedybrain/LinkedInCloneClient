@@ -3,8 +3,8 @@ import React from "react";
 
 //! Custom Modules/ Components
 import HomeLeftUserInfo from "./HomeLeftUserInfo";
-import "../Styles/HomeLeft.css";
 import HomeLeftUserActivity from "./HomeLeftUserActivity";
+import "../Styles/HomeLeft.css";
 
 const HomeLeft = () => {
 	return (

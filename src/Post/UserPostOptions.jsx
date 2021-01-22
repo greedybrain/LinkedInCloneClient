@@ -5,7 +5,7 @@ import "../Styles/UserPostOptions.css";
 
 class UserPostOptions extends Component {
 	handleEdit = () => {
-		const { toggleUserPostOptions, setEditMode, getCurrentPost } = this.props;
+		const { setEditMode, getCurrentPost } = this.props;
 		toggleUserPostOptions();
 		setEditMode(true);
 		getCurrentPost(this.props.post);

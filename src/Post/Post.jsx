@@ -1,13 +1,18 @@
-import React, { useContext, useEffect, useState } from "react";
-import Icon from "../Common/Icon";
-import "../Styles/Post.css";
+//! Core Modules
+import React, { useContext, useState } from "react";
+
+//! NPM Modules
 import moment from "moment";
+
+//! Custom Modules
+import Icon from "../Common/Icon";
 import UserPostOptions from "./UserPostOptions";
 import ViewerPostOptions from "./ViewerPostOptions";
-import UserContext from "../Context/userContext";
-import axios from "../utils/axios_configs";
 import WhoLiked from "./WhoLiked";
-import CommentForm from "./CommentForm";
+import CommentForm from "../Comments/CommentForm";
+import UserContext from "../Context/userContext";
+import { likePostService, unlikePostService } from "../services/like_post";
+import "../Styles/Post.css";
 
 const Post = ({
 	image,
@@ -20,8 +25,7 @@ const Post = ({
 	const [showLikes, setShowLikes] = useState(false);
 	const [liked, setLiked] = useState(false);
 	const [showCommentForm, setShowCommentForm] = useState(false);
-	const { get } = useContext(UserContext);
-	const { user } = get;
+	const { user } = useContext(UserContext).get;
 
 	const toggleUserPostOptions = () => {
 		setShowUserPostOptions(!showUserPostOptions);
@@ -37,33 +41,17 @@ const Post = ({
 	};
 
 	const handlePostLike = async () => {
-		const token = localStorage.getItem("token");
 		if (!userDidLike()) {
-			try {
-				const { data } = await axios.post(
-					`/likes/${post._id}`,
-					{ foo: null },
-					{ headers: { Authorization: `Bearer ${token}` } }
-				);
-				console.log(data);
-			} catch (error) {
-				console.log(error.message);
-			}
+			const like = await likePostService(post);
+			console.log(like, "POST LIKED");
 			setLiked(true);
 		} else {
-			try {
-				const { data } = await axios.delete(`/likes/${post._id}`, {
-					headers: { Authorization: `Bearer ${token}` },
-				});
-				console.log(data);
-			} catch (error) {
-				console.log(error.message);
-			}
+			const unlike = await unlikePostService(post);
+			console.log(unlike, "POST UNLIKED");
 			setLiked(false);
 		}
 	};
 
-	// useEffect(() => getAllPosts(), [getAllPosts, liked]);
 
 	return (
 		<>

@@ -1,7 +1,7 @@
 import React from "react";
 import LinkedInNews from "./LinkedInNews";
-import "../Styles/HomeRight.css";
 import MostViewedCourses from "./MostViewedCourses";
+import "../Styles/HomeRight.css";
 
 const HomeRight = () => {
 	return (
