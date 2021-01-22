@@ -1,0 +1,122 @@
+div.who_liked_wrapper {
+	position: absolute;
+	z-index: 101;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	background-color: rgba(0, 0, 0, 0.74);
+
+	div.who_liked {
+		width: 490px;
+		height: 500px;
+		background-color: #fff;
+		margin-top: 60px;
+		border-radius: 10px;
+		padding: 10px 0;
+
+		div.header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 5px 20px;
+
+			div.label {
+				font-size: 1.2rem;
+			}
+
+			i {
+				font-size: 1.3rem;
+				color: #00000099;
+				cursor: pointer;
+			}
+		}
+		div.meta_data {
+			padding: 0 20px;
+			border-bottom: 1px solid #eee;
+
+			div.data {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 70px;
+				color: #0a66c2;
+				padding: 3px 0;
+				border-bottom: 5px solid #0a66c2;
+				i {
+					transform: rotateY(180deg);
+					font-size: 1.2rem;
+				}
+
+				div.like_amt {
+					margin-left: 5px;
+					font-size: 0.8rem;
+				}
+			}
+		}
+
+		div.body {
+			ul {
+				padding: 10px 0;
+				li {
+					display: flex;
+					padding: 5px 20px;
+
+					div.user_image {
+						width: 50px;
+						margin-right: 5px;
+						position: relative;
+
+						img {
+							border-radius: 50%;
+							width: 100%;
+							height: 100%;
+						}
+
+						div.icon_wrapper {
+							position: absolute;
+							display: flex;
+							z-index: 200;
+							bottom: 0;
+							right: 0;
+							border: 1px solid #fff;
+							background-color: #1086fc;
+							border-radius: 50%;
+							padding: 2px;
+
+							i {
+								transform: rotateY(180deg);
+								font-size: 0.5rem;
+								color: #fff;
+							}
+						}
+					}
+
+					&:not(:last-child) {
+						div.name_headline {
+							border-bottom: 1px solid #dadada80;
+						}
+					}
+
+					div.name_headline {
+						width: 100%;
+						padding-bottom: 5px;
+
+						div.name {
+							font-weight: 700;
+							font-size: 1rem;
+						}
+
+						div.headline {
+							font-size: 0.8rem;
+							color: #00000099;
+						}
+					}
+				}
+			}
+		}
+	}
+}

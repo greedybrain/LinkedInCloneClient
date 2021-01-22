@@ -17,8 +17,8 @@ const Routes = () => {
 				exact
 				path='/notifications'
 				render={(routerProps) =>
-					user.loggedIn ? (
-						<Redirect to='/' />
+					!user.loggedIn ? (
+						<Redirect to='/login' />
 					) : (
 						<Notifications {...routerProps} />
 					)
@@ -28,21 +28,29 @@ const Routes = () => {
 				exact
 				path='/messaging'
 				render={(routerProps) =>
-					user.loggedIn ? <Redirect to='/' /> : <Messaging {...routerProps} />
+					!user.loggedIn ? (
+						<Redirect to='/login' />
+					) : (
+						<Messaging {...routerProps} />
+					)
 				}
 			/>
 			<Route
 				exact
 				path='/jobs'
 				render={(routerProps) =>
-					user.loggedIn ? <Redirect to='/' /> : <Jobs {...routerProps} />
+					!user.loggedIn ? <Redirect to='/login' /> : <Jobs {...routerProps} />
 				}
 			/>
 			<Route
 				exact
 				path='/my_network'
 				render={(routerProps) =>
-					user.loggedIn ? <Redirect to='/' /> : <MyNetwork {...routerProps} />
+					!user.loggedIn ? (
+						<Redirect to='/login' />
+					) : (
+						<MyNetwork {...routerProps} />
+					)
 				}
 			/>
 			<Route

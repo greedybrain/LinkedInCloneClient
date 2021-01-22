@@ -106,13 +106,52 @@ div.post_and_user_options {
 				}
 
 				div.comment_meta_data {
+					display: flex;
+					align-items: center;
 					font-size: 0.8rem;
 					color: #00000099;
+
+					div.reaction {
+						display: flex;
+						align-items: center;
+						// height: 20px;
+
+						i {
+							margin-right: 5px;
+							transform: rotateY(180deg);
+							color: #0a66c2;
+						}
+					}
+					div.reaction_amount {
+						position: relative;
+						top: 1px;
+						color: #00000099;
+						margin-right: 5px;
+						cursor: pointer;
+
+						&:hover {
+							color: #0a66c2;
+							text-decoration: underline;
+						}
+					}
+
+					div.comments {
+						position: relative;
+						top: 1px;
+					}
 				}
 			}
 
 			div.post_footer {
 				display: flex;
+
+				div.liked_state {
+					div.icon_wrapper {
+						i {
+							color: #0a66c2;
+						}
+					}
+				}
 
 				div.meta {
 					display: flex;

@@ -1,0 +1,145 @@
+div.who_liked_wrapper {
+  position: absolute;
+  z-index: 101;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  background-color: rgba(0, 0, 0, 0.74);
+}
+
+div.who_liked_wrapper div.who_liked {
+  width: 490px;
+  height: 500px;
+  background-color: #fff;
+  margin-top: 60px;
+  border-radius: 10px;
+  padding: 10px 0;
+}
+
+div.who_liked_wrapper div.who_liked div.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px 20px;
+}
+
+div.who_liked_wrapper div.who_liked div.header div.label {
+  font-size: 1.2rem;
+}
+
+div.who_liked_wrapper div.who_liked div.header i {
+  font-size: 1.3rem;
+  color: #00000099;
+  cursor: pointer;
+}
+
+div.who_liked_wrapper div.who_liked div.meta_data {
+  padding: 0 20px;
+  border-bottom: 1px solid #eee;
+}
+
+div.who_liked_wrapper div.who_liked div.meta_data div.data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 70px;
+  color: #0a66c2;
+  padding: 3px 0;
+  border-bottom: 5px solid #0a66c2;
+}
+
+div.who_liked_wrapper div.who_liked div.meta_data div.data i {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  font-size: 1.2rem;
+}
+
+div.who_liked_wrapper div.who_liked div.meta_data div.data div.like_amt {
+  margin-left: 5px;
+  font-size: 0.8rem;
+}
+
+div.who_liked_wrapper div.who_liked div.body ul {
+  padding: 10px 0;
+}
+
+div.who_liked_wrapper div.who_liked div.body ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 5px 20px;
+}
+
+div.who_liked_wrapper div.who_liked div.body ul li div.user_image {
+  width: 50px;
+  margin-right: 5px;
+  position: relative;
+}
+
+div.who_liked_wrapper div.who_liked div.body ul li div.user_image img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+div.who_liked_wrapper div.who_liked div.body ul li div.user_image div.icon_wrapper {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 200;
+  bottom: 0;
+  right: 0;
+  border: 1px solid #fff;
+  background-color: #1086fc;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+div.who_liked_wrapper div.who_liked div.body ul li div.user_image div.icon_wrapper i {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  font-size: 0.5rem;
+  color: #fff;
+}
+
+div.who_liked_wrapper div.who_liked div.body ul li:not(:last-child) div.name_headline {
+  border-bottom: 1px solid #dadada80;
+}
+
+div.who_liked_wrapper div.who_liked div.body ul li div.name_headline {
+  width: 100%;
+  padding-bottom: 5px;
+}
+
+div.who_liked_wrapper div.who_liked div.body ul li div.name_headline div.name {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+div.who_liked_wrapper div.who_liked div.body ul li div.name_headline div.headline {
+  font-size: 0.8rem;
+  color: #00000099;
+}

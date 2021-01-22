@@ -1,0 +1,72 @@
+div.comment_form_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 15px;
+}
+
+div.comment_form_wrapper div.comment_form {
+  width: 100%;
+}
+
+div.comment_form_wrapper div.comment_form form {
+  width: 100%;
+  height: 100%;
+}
+
+div.comment_form_wrapper div.comment_form form div.image_comment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+div.comment_form_wrapper div.comment_form form div.image_comment div.user_image {
+  width: 40px;
+  position: absolute;
+  top: 3px;
+  left: 0;
+}
+
+div.comment_form_wrapper div.comment_form form div.image_comment div.user_image img {
+  border-radius: 50%;
+}
+
+div.comment_form_wrapper div.comment_form form div.image_comment div.comment_field {
+  width: 90%;
+  margin-left: 45px;
+}
+
+div.comment_form_wrapper div.comment_form form div.image_comment div.comment_field textarea {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #dadada;
+  resize: none;
+  outline: none;
+}
+
+div.comment_form_wrapper div.comment_form form div.image_comment div.comment_field textarea:focus {
+  border: 2px solid #dadada;
+}
+
+div.comment_form_wrapper div.comment_form form div.submit_btn {
+  width: 55px;
+  margin: 10px 0 0 45px;
+  border-radius: 40px;
+  background-color: #0a66c2;
+}
+
+div.comment_form_wrapper div.comment_form form div.submit_btn button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  color: #fff;
+}

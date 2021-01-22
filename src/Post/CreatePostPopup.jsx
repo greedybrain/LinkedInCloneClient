@@ -12,6 +12,7 @@ class CreatePostPopup extends Component {
 		this.state = {
 			content: "",
 			avatar: "",
+			disabled: true,
 		};
 	}
 
@@ -19,6 +20,14 @@ class CreatePostPopup extends Component {
 		this.setState({
 			content: event.target.value,
 		});
+
+		if (event.target.name === "content") {
+			if (event.target.value.length > 0) {
+				this.setState({ disabled: false });
+			} else {
+				this.setState({ disabled: true });
+			}
+		}
 	};
 
 	handleSubmit = async (event) => {
@@ -142,7 +151,15 @@ class CreatePostPopup extends Component {
 									<Icon name='fas fa-file-alt' />
 								</div>
 								<div className='submit_btn'>
-									<button type='submit'>Post</button>
+									<button
+										type='submit'
+										disabled={this.state.disabled}
+										style={
+											this.state.disabled ? { cursor: "not-allowed" } : null
+										}
+									>
+										Post
+									</button>
 								</div>
 							</div>
 						</form>

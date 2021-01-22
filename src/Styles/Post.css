@@ -123,14 +123,58 @@ div.post_and_user_options div.post_wrapper div.post div.post_body div.content {
 }
 
 div.post_and_user_options div.post_wrapper div.post div.post_body div.comment_meta_data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 0.8rem;
   color: #00000099;
+}
+
+div.post_and_user_options div.post_wrapper div.post div.post_body div.comment_meta_data div.reaction {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.post_and_user_options div.post_wrapper div.post div.post_body div.comment_meta_data div.reaction i {
+  margin-right: 5px;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  color: #0a66c2;
+}
+
+div.post_and_user_options div.post_wrapper div.post div.post_body div.comment_meta_data div.reaction_amount {
+  position: relative;
+  top: 1px;
+  color: #00000099;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+div.post_and_user_options div.post_wrapper div.post div.post_body div.comment_meta_data div.reaction_amount:hover {
+  color: #0a66c2;
+  text-decoration: underline;
+}
+
+div.post_and_user_options div.post_wrapper div.post div.post_body div.comment_meta_data div.comments {
+  position: relative;
+  top: 1px;
 }
 
 div.post_and_user_options div.post_wrapper div.post div.post_footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+div.post_and_user_options div.post_wrapper div.post div.post_footer div.liked_state div.icon_wrapper i {
+  color: #0a66c2;
 }
 
 div.post_and_user_options div.post_wrapper div.post div.post_footer div.meta {

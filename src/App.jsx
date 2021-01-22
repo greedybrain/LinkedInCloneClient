@@ -13,9 +13,23 @@ class App extends Component {
 	state = {
 		loggedIn: false,
 		user: {},
-		usersPosts: [],
+		allUsers: [],
 		showMePopup: false,
 		showCreatePostPopup: false,
+	};
+
+	getAllUsers = async () => {
+		const token = localStorage.getItem("token");
+		try {
+			const { data } = await axios("/users", {
+				headers: { Authorization: `Bearer ${token}` },
+			});
+			this.setState({
+				allUsers: data,
+			});
+		} catch (error) {
+			console.log(error.message);
+		}
 	};
 
 	getCurrentUser = async () => {
@@ -28,7 +42,6 @@ class App extends Component {
 				this.setState({
 					loggedIn: true,
 					user: data.data,
-					usersPosts: data.posts,
 				});
 		} catch (error) {
 			console.log(error.message);
@@ -36,7 +49,8 @@ class App extends Component {
 	};
 
 	async componentDidMount() {
-		this.getCurrentUser();
+		await this.getAllUsers();
+		await this.getCurrentUser();
 	}
 
 	toggleMePopup = () => {
@@ -80,7 +94,7 @@ class App extends Component {
 		const {
 			loggedIn,
 			user,
-			usersPosts,
+			allUsers,
 			showMePopup,
 			showCreatePostPopup,
 			showUserPostOptions,
@@ -88,7 +102,7 @@ class App extends Component {
 		const value = {
 			loggedIn,
 			user,
-			usersPosts,
+			allUsers,
 			showMePopup,
 			showCreatePostPopup,
 			showUserPostOptions,

@@ -1,4 +1,4 @@
-import React, { Component, useContext, useEffect, useState } from "react";
+import React, { Component } from "react";
 import CreatePost from "../Post/CreatePost";
 import "../Styles/HomeFeed.css";
 import Posts from "../Post/Posts";
@@ -7,7 +7,7 @@ import CreatePostPopup from "../Post/CreatePostPopup";
 import UserContext from "../Context/userContext";
 import SuccessMessage from "../SuccessMessage";
 import "../Styles/SuccessMessage.css";
-import ViewerPostOptions from "../Post/ViewerPostOptions";
+import WhoLiked from "../Post/WhoLiked";
 
 class HomeFeed extends Component {
 	state = {
@@ -33,12 +33,14 @@ class HomeFeed extends Component {
 		}
 	};
 
-	componentDidMount = () => {
-		this.getAllPosts();
+	componentDidMount = async () => {
+		await this.getAllPosts();
 	};
 
-	componentDidUpdate = () => {
-		this.getAllPosts();
+	componentDidUpdate = async (prevProps, prevState, snapshot) => {
+		if (this.state.allPosts !== prevState.allPosts) {
+			await this.getAllPosts();
+		}
 	};
 
 	getCurrentPost = (post) => {
@@ -71,6 +73,7 @@ class HomeFeed extends Component {
 				}
 			);
 			console.log(data);
+			this.setState({ allLikes: data });
 		} catch (error) {
 			console.log(error.message);
 		}
@@ -112,6 +115,7 @@ class HomeFeed extends Component {
 		const { showCreatePostPopup } = this.context;
 		const {
 			allPosts,
+			allLikes,
 			didCreatePost,
 			didDeletePost,
 			didEditPost,
@@ -134,11 +138,13 @@ class HomeFeed extends Component {
 				) : null}
 				<Posts
 					allPosts={allPosts}
+					allLikes={allLikes}
 					deletePost={this.deletePost}
 					editPost={this.editPost}
 					getCurrentPost={this.getCurrentPost}
 					inEditMode={inEditMode}
 					setEditMode={this.setEditMode}
+					getAllPosts={this.getAllPosts}
 				/>
 				{didDeletePost || didCreatePost || didEditPost ? (
 					<SuccessMessage
