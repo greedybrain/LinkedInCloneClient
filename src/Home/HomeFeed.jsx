@@ -25,6 +25,7 @@ class HomeFeed extends Component {
 
 	getAllPostsAction = async () => {
 		const data = await getAllPostsService();
+		if (!data) return;
 		data.reverse();
 		this.setState({ allPosts: data });
 	};
@@ -91,9 +92,31 @@ class HomeFeed extends Component {
 			inEditMode,
 		} = this.state;
 		return (
-			<div className='home_feed_wrapper'>
-				<CreatePost />
+			<>
+				<div className='home_feed_wrapper'>
+					<CreatePost />
 
+					<Posts
+						allPosts={allPosts}
+						allLikes={allLikes}
+						deletePostAction={this.deletePostAction}
+						editPostAction={this.editPostAction}
+						getCurrentPost={this.getCurrentPost}
+						inEditMode={inEditMode}
+						setEditMode={this.setEditMode}
+						getAllPosts={this.getAllPosts}
+					/>
+					{didDeletePost || didCreatePost || didEditPost ? (
+						<SuccessMessage
+							successMessage={successMessage}
+							setSuccessMessage={this.setSuccessMessage}
+							setDidDeletePost={this.setDidDeletePost}
+							setDidCreatePost={this.setDidCreatePost}
+							setDidEditPost={this.setDidEditPost}
+							setEditMode={this.setEditMode}
+						/>
+					) : null}
+				</div>
 				{showCreatePostPopup ? (
 					<CreatePostPopup
 						addPostAction={this.addPostAction}
@@ -103,27 +126,7 @@ class HomeFeed extends Component {
 						setEditMode={this.setEditMode}
 					/>
 				) : null}
-				<Posts
-					allPosts={allPosts}
-					allLikes={allLikes}
-					deletePostAction={this.deletePostAction}
-					editPostAction={this.editPostAction}
-					getCurrentPost={this.getCurrentPost}
-					inEditMode={inEditMode}
-					setEditMode={this.setEditMode}
-					getAllPosts={this.getAllPosts}
-				/>
-				{didDeletePost || didCreatePost || didEditPost ? (
-					<SuccessMessage
-						successMessage={successMessage}
-						setSuccessMessage={this.setSuccessMessage}
-						setDidDeletePost={this.setDidDeletePost}
-						setDidCreatePost={this.setDidCreatePost}
-						setDidEditPost={this.setDidEditPost}
-						setEditMode={this.setEditMode}
-					/>
-				) : null}
-			</div>
+			</>
 		);
 	}
 }

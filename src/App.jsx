@@ -32,6 +32,7 @@ class App extends Component {
 
 	getCurrentUserAction = async () => {
 		const data = await getCurrentUserService();
+		if (!data) return;
 		this.setState({
 			loggedIn: true,
 			user: data.data,
@@ -47,12 +48,15 @@ class App extends Component {
 	};
 
 	logoutAction = async () => {
-		logoutService();
+		await logoutService();
+		localStorage.removeItem("token");
 		this.setState({
 			loggedIn: false,
 			user: {},
-			usersPosts: [],
+			allUsers: [],
+			allPosts: [],
 			showMePopup: false,
+			showCreatePostPopup: false,
 		});
 	};
 

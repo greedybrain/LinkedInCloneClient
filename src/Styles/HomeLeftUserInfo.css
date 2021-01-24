@@ -35,7 +35,7 @@ div.home_left_user_info_wrapper div.user_name a {
 
 div.home_left_user_info_wrapper div.user_headline {
   color: #00000099;
-  font-size: .7rem;
+  font-size: 0.7rem;
   text-align: center;
   padding: 0 4% 10px;
   border-bottom: 1px solid #eee;
@@ -43,7 +43,7 @@ div.home_left_user_info_wrapper div.user_headline {
 
 div.home_left_user_info_wrapper div.views {
   color: #00000099;
-  font-size: .7rem;
+  font-size: 0.7rem;
   text-align: center;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
@@ -94,7 +94,7 @@ div.home_left_user_info_wrapper div.tools:hover div.reactivate {
 }
 
 div.home_left_user_info_wrapper div.tools div.access {
-  font-size: .7rem;
+  font-size: 0.7rem;
   color: #00000099;
 }
 
@@ -102,7 +102,7 @@ div.home_left_user_info_wrapper div.tools div.prem {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: .7rem;
+  font-size: 0.7rem;
   font-weight: 700;
   height: 18px;
 }
@@ -123,7 +123,7 @@ div.home_left_user_info_wrapper div.tools div.prem div.reactivate {
 }
 
 div.home_left_user_info_wrapper div.my_items {
-  font-size: .7rem;
+  font-size: 0.7rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

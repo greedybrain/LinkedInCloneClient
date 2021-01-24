@@ -1,0 +1,90 @@
+li.comment_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 15px;
+}
+
+li.comment_wrapper div.user_image {
+  width: 40px;
+  margin-right: 2px;
+}
+
+li.comment_wrapper div.user_image img {
+  border-radius: 50%;
+}
+
+li.comment_wrapper div.helper {
+  width: 100%;
+}
+
+li.comment_wrapper div.helper div.comment {
+  background-color: rgba(238, 238, 238, 0.705);
+  border-radius: 0 10px 10px 10px;
+  padding: 10px;
+}
+
+li.comment_wrapper div.helper div.comment div.comment_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+li.comment_wrapper div.helper div.comment div.comment_header div.name_and_headline {
+  font-size: 0.7rem;
+  line-height: 1.3;
+}
+
+li.comment_wrapper div.helper div.comment div.comment_header div.name_and_headline div.name {
+  font-weight: 700;
+}
+
+li.comment_wrapper div.helper div.comment div.comment_header div.name_and_headline div.headline {
+  color: #00000099;
+}
+
+li.comment_wrapper div.helper div.comment div.comment_header div.time_and_ellipsis {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+li.comment_wrapper div.helper div.comment div.comment_header div.time_and_ellipsis div.time {
+  font-size: 0.6rem;
+  color: #00000099;
+  margin-right: 5px;
+}
+
+li.comment_wrapper div.helper div.comment div.comment_header div.time_and_ellipsis div.ellipsis {
+  font-size: 8px;
+  color: #00000099;
+}
+
+li.comment_wrapper div.helper div.comment div.comment_body {
+  font-size: 0.85rem;
+  color: #000000c2;
+  margin-top: 5px;
+}
+
+li.comment_wrapper div.helper div.comment_footer span {
+  margin-left: 10px;
+}
+
+li.comment_wrapper div.helper div.comment_footer span.like, li.comment_wrapper div.helper div.comment_footer span.reply {
+  font-size: 0.7rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: #00000091;
+}
+
+li.comment_wrapper div.helper div.comment_footer span.pipe {
+  color: #68686870;
+}

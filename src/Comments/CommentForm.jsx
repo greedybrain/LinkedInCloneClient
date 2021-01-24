@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../Styles/CommentForm.css";
+import axios from "../utils/axios_configs";
 
 class CommentForm extends Component {
 	state = {
@@ -24,11 +25,32 @@ class CommentForm extends Component {
 		}
 	};
 
+	handleSubmit = async (event) => {
+		event.preventDefault();
+		const { post } = this.props;
+		const { content } = this.state;
+		const { token } = localStorage;
+		try {
+			const { data } = await axios.post(
+				`/comments/${post._id}`,
+				{ content },
+				{ headers: { Authorization: `Bearer ${token}` } }
+			);
+			console.log(data);
+		} catch (error) {
+			console.log(error.message);
+		}
+		event.target.reset();
+		this.setState({
+			content: "",
+		});
+	};
+
 	render() {
 		return (
 			<div className='comment_form_wrapper'>
 				<div className='comment_form'>
-					<form>
+					<form onSubmit={this.handleSubmit}>
 						<div className='image_comment'>
 							<div className='user_image'>
 								<img
@@ -46,7 +68,6 @@ class CommentForm extends Component {
 									required
 									defaultValue={this.state.content}
 									onChange={this.handleChange}
-									wrap='hard'
 									rows='1'
 								/>
 							</div>

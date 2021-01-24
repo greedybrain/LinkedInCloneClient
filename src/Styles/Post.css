@@ -153,7 +153,6 @@ div.post_and_user_options div.post_wrapper div.post div.post_body div.comment_me
   position: relative;
   top: 1px;
   color: #00000099;
-  margin-right: 5px;
   cursor: pointer;
 }
 
@@ -165,6 +164,12 @@ div.post_and_user_options div.post_wrapper div.post div.post_body div.comment_me
 div.post_and_user_options div.post_wrapper div.post div.post_body div.comment_meta_data div.comments {
   position: relative;
   top: 1px;
+  cursor: pointer;
+}
+
+div.post_and_user_options div.post_wrapper div.post div.post_body div.comment_meta_data div.comments:hover {
+  text-decoration: underline;
+  color: #0a66c2;
 }
 
 div.post_and_user_options div.post_wrapper div.post div.post_footer {

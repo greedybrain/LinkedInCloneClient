@@ -13,6 +13,7 @@ import CommentForm from "../Comments/CommentForm";
 import UserContext from "../Context/userContext";
 import { likePostService, unlikePostService } from "../services/like_post";
 import "../Styles/Post.css";
+import CommentSection from "../Comments/CommentSection";
 
 const Post = ({
 	image,
@@ -25,6 +26,7 @@ const Post = ({
 	const [showLikes, setShowLikes] = useState(false);
 	const [liked, setLiked] = useState(false);
 	const [showCommentForm, setShowCommentForm] = useState(false);
+	const [showComments, setShowComments] = useState(false);
 	const { user } = useContext(UserContext).get;
 
 	const toggleUserPostOptions = () => {
@@ -33,6 +35,11 @@ const Post = ({
 
 	const handleUserOptionsLeave = () => {
 		setShowUserPostOptions(false);
+	};
+
+	const handleShowCommentArea = () => {
+		setShowCommentForm(true);
+		setTimeout(() => setShowComments(true), 500);
 	};
 
 	const userDidLike = () => {
@@ -51,7 +58,6 @@ const Post = ({
 			setLiked(false);
 		}
 	};
-
 
 	return (
 		<>
@@ -96,15 +102,23 @@ const Post = ({
 												className='reaction_amount'
 												onClick={() => setShowLikes(true)}
 											>
-												{post.likes.length}
+												{`${post.likes.length} ${
+													post.likes.length > 0 && post.comments.length > 0
+														? "•"
+														: ""
+												}`}
 											</div>
-											<div className='dot' style={{ marginRight: "4px" }}>
-												•
-											</div>
+											<div className='dot' style={{ marginRight: "4px" }}></div>
 										</>
 									) : null}
 								</div>
-								<div className='comments'>0 comments</div>
+								<div className='comments' onClick={handleShowCommentArea}>
+									{post.comments.length > 0
+										? post.comments.length === 1
+											? `${post.comments.length} comment`
+											: ` ${post.comments.length} comments`
+										: null}
+								</div>
 							</div>
 						</div>
 						<div className='post_footer'>
@@ -126,7 +140,7 @@ const Post = ({
 							)}
 							<div
 								className='comment_label meta'
-								onClick={() => setShowCommentForm(!showCommentForm)}
+								onClick={handleShowCommentArea}
 							>
 								<Icon name='far fa-comment-dots comment icon' />
 								<div className='label'>Comment</div>
@@ -140,7 +154,8 @@ const Post = ({
 								<div className='label'>Send</div>
 							</div>
 						</div>
-						{showCommentForm ? <CommentForm /> : null}
+						{showCommentForm ? <CommentForm post={post} /> : null}
+						{showComments ? <CommentSection post={post} /> : null}
 					</div>
 				</div>
 

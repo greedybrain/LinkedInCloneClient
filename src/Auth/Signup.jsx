@@ -24,7 +24,7 @@ class Signup extends Component {
 		event.preventDefault();
 
 		const user = this.state;
-		const { signupAction } = this.context;
+		const { signupAction } = this.context.actions;
 
 		//! signupAction loads user to state, signupService sends signup post request
 		signupService(signupAction, user);

@@ -62,14 +62,14 @@ const Routes = () => {
 				exact
 				path='/signup'
 				render={(routerProps) =>
-					get.loggedIn ? <Redirect to='/' /> : <Signup {...routerProps} />
+					get.loggedIn ? <Redirect to='/feed' /> : <Signup {...routerProps} />
 				}
 			/>
 			<Route
 				exact
 				path='/login'
 				render={(routerProps) =>
-					get.loggedIn ? <Redirect to='/' /> : <Login {...routerProps} />
+					get.loggedIn ? <Redirect to='/feed' /> : <Login {...routerProps} />
 				}
 			/>
 			<Route

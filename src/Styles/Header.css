@@ -1,9 +1,12 @@
 header.main_header {
   border-bottom: 1px solid #eee;
+  background-color: #fff;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  z-index: 100;
+  left: 0;
+  width: 100%;
+  z-index: 101;
   height: 5.6vh;
   min-height: 50px;
 }
