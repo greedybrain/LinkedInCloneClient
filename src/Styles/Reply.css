@@ -1,0 +1,97 @@
+div.reply_and_options {
+  position: relative;
+  width: 455px;
+}
+
+div.reply_and_options li.reply_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 15px;
+  position: relative;
+}
+
+div.reply_and_options li.reply_wrapper div.user_image {
+  width: 40px;
+  margin-right: 2px;
+}
+
+div.reply_and_options li.reply_wrapper div.user_image img {
+  border-radius: 50%;
+}
+
+div.reply_and_options li.reply_wrapper div.helper {
+  width: 100%;
+}
+
+div.reply_and_options li.reply_wrapper div.helper div.reply {
+  background-color: rgba(238, 238, 238, 0.705);
+  border-radius: 0 10px 10px 10px;
+  padding: 10px;
+}
+
+div.reply_and_options li.reply_wrapper div.helper div.reply div.reply_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+div.reply_and_options li.reply_wrapper div.helper div.reply div.reply_header div.name_and_headline {
+  font-size: 0.7rem;
+  line-height: 1.3;
+}
+
+div.reply_and_options li.reply_wrapper div.helper div.reply div.reply_header div.name_and_headline div.name {
+  font-weight: 700;
+}
+
+div.reply_and_options li.reply_wrapper div.helper div.reply div.reply_header div.name_and_headline div.headline {
+  color: #00000099;
+}
+
+div.reply_and_options li.reply_wrapper div.helper div.reply div.reply_header div.time_and_ellipsis {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+div.reply_and_options li.reply_wrapper div.helper div.reply div.reply_header div.time_and_ellipsis div.time {
+  font-size: 0.6rem;
+  color: #00000099;
+  margin-right: 5px;
+}
+
+div.reply_and_options li.reply_wrapper div.helper div.reply div.reply_header div.time_and_ellipsis div.ellipsis {
+  font-size: 8px;
+  color: #00000099;
+}
+
+div.reply_and_options li.reply_wrapper div.helper div.reply div.reply_body {
+  font-size: 0.85rem;
+  color: #000000c2;
+  margin-top: 5px;
+}
+
+div.reply_and_options li.reply_wrapper div.helper div.reply_footer span {
+  margin-left: 10px;
+}
+
+div.reply_and_options li.reply_wrapper div.helper div.reply_footer span.like, div.reply_and_options li.reply_wrapper div.helper div.reply_footer span.reply {
+  font-size: 0.7rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: #00000091;
+}
+
+div.reply_and_options li.reply_wrapper div.helper div.reply_footer span.pipe {
+  color: #68686870;
+}

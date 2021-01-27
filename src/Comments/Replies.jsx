@@ -1,24 +1,26 @@
 import React, { Component } from "react";
-import Comment from "./Comment";
-import "../Styles/CommentSection.css";
-class CommentSection extends Component {
+import Reply from "./Reply";
+import "../Styles/Replies.css";
+
+class Replies extends Component {
 	render() {
 		const {
 			post,
+			replies,
 			handleUserCommentOptionsLeave,
 			toggleUserCommentOptions,
 		} = this.props;
 		return (
-			<div className='comment_section_wrapper'>
+			<div className='replies_section_wrapper'>
 				{/* <div className='sort_options'>Most relevant</div> */}
-				<div className='comment_section'>
+				<div className='replies_section'>
 					<ul>
-						{post.comments.reverse().map((comment) => {
+						{replies.reverse().map((reply) => {
 							return (
-								<Comment
-									key={comment._id}
+								<Reply
+									key={reply._id}
+									reply={reply}
 									post={post}
-									comment={comment}
 									handleUserCommentOptionsLeave={handleUserCommentOptionsLeave}
 									toggleUserCommentOptions={toggleUserCommentOptions}
 								/>
@@ -31,4 +33,4 @@ class CommentSection extends Component {
 	}
 }
 
-export default CommentSection;
+export default Replies;

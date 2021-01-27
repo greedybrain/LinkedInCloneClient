@@ -1,30 +1,29 @@
 import React, { Component } from "react";
 import moment from "moment";
 import UserContext from "../Context/userContext";
-import "../Styles/Comment.css";
+import "../Styles/Reply.css";
 import UserCommentOptions from "./UserCommentOptions";
-import Replies from "./Replies";
 
-class Comment extends Component {
+class Reply extends Component {
 	state = {
-		shouldShowCommentOptions: false,
+		shouldShowReplyOptions: false,
 	};
 
 	getStatePropsContext = () => {
 		const { allUsers } = this.context.get;
-		const { shouldShowCommentOptions } = this.state;
-		const { comment, post } = this.props;
+		const { shouldShowReplyOptions } = this.state;
+		const { comment, reply } = this.props;
 		return {
 			allUsers,
-			shouldShowCommentOptions,
+			shouldShowReplyOptions,
 			comment,
-			post,
+			reply,
 		};
 	};
 
-	getCommentUser = () => {
-		const { allUsers, comment } = this.getStatePropsContext();
-		const user = allUsers.find((user) => comment.user === user._id);
+	getReplyUser = () => {
+		const { allUsers, reply } = this.getStatePropsContext();
+		const user = allUsers.find((user) => reply.user === user._id);
 		if (!user) return;
 		return user;
 	};
@@ -42,14 +41,10 @@ class Comment extends Component {
 	};
 
 	render() {
-		const {
-			comment,
-			shouldShowCommentOptions,
-			post,
-		} = this.getStatePropsContext();
+		const { shouldShowCommentOptions, reply } = this.getStatePropsContext();
 		return (
-			<div className='comment_and_options'>
-				<li className='comment_wrapper'>
+			<div className='reply_and_options'>
+				<li className='reply_wrapper'>
 					<div className='user_image'>
 						<img
 							src='https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png'
@@ -57,17 +52,15 @@ class Comment extends Component {
 						/>
 					</div>
 					<div className='helper'>
-						<div className='comment'>
-							<div className='comment_header'>
+						<div className='reply'>
+							<div className='reply_header'>
 								<div className='name_and_headline'>
-									<div className='name'>{this.getCommentUser().name}</div>
-									<div className='headline'>
-										{this.getCommentUser().headline}
-									</div>
+									<div className='name'>{this.getReplyUser().name}</div>
+									<div className='headline'>{this.getReplyUser().headline}</div>
 								</div>
 								<div className='time_and_ellipsis'>
 									<div className='time'>
-										{moment(comment.createdAt).fromNow()}
+										{moment(reply.createdAt).fromNow()}
 									</div>
 									<div
 										className='ellipsis'
@@ -77,16 +70,15 @@ class Comment extends Component {
 									</div>
 								</div>
 							</div>
-							<div className='comment_body'>{comment.content}</div>
+							<div className='reply_body'>{reply.content}</div>
 						</div>
-						<div className='comment_footer'>
+						<div className='reply_footer'>
 							<span className='like'>Like</span>
 							<span className='pipe'>|</span>
 							<span className='reply'>Reply</span>
 						</div>
 					</div>
 				</li>
-				<Replies post={post} replies={comment.replies} />
 				{shouldShowCommentOptions ? (
 					<UserCommentOptions
 						handleCommentOptionsLeave={this.handleCommentOptionsLeave}
@@ -97,6 +89,6 @@ class Comment extends Component {
 	}
 }
 
-Comment.contextType = UserContext;
+Reply.contextType = UserContext;
 
-export default Comment;
+export default Reply;

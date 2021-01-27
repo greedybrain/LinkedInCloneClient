@@ -9,6 +9,7 @@ const Posts = ({
 	setEditMode,
 	getCurrentPost,
 	getAllPosts,
+	getAllPostsAction,
 }) => {
 	return (
 		<div className='all_posts'>
@@ -26,6 +27,7 @@ const Posts = ({
 							getCurrentPost={getCurrentPost}
 							allLikes={allLikes}
 							getAllPosts={getAllPosts}
+							getAllPostsAction={getAllPostsAction}
 						/>
 					</Fragment>
 				);

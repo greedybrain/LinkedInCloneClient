@@ -50,8 +50,8 @@ class CreatePostPopup extends Component {
 		let { content } = currentPost;
 		content = this.state.content;
 
-		const post = await editPostService(this.context, currentPost, content);
-		editPostAction(post);
+		const data = await editPostService(this.context, currentPost, content);
+		editPostAction(data.post);
 		setEditMode(false);
 		toggleCreatePostPopup();
 	};

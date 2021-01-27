@@ -34,11 +34,11 @@ class HomeFeed extends Component {
 		await this.getAllPostsAction();
 	};
 
-	componentDidUpdate = async (prevProps, prevState, snapshot) => {
-		if (this.state.allPosts !== prevState.allPosts) {
-			await this.getAllPostsAction();
-		}
-	};
+	// componentDidUpdate = async (prevProps, prevState, snapshot) => {
+	// 	if (this.state.allPosts !== prevState.allPosts) {
+	// 		await this.getAllPostsAction();
+	// 	}
+	// };
 
 	getCurrentPost = (post) => {
 		this.setState({ currentPost: post });
@@ -55,7 +55,12 @@ class HomeFeed extends Component {
 
 	editPostAction = async (post) => {
 		console.log(post, "EDITED POST");
+		const posts = [...this.state.allPosts];
+		const index = posts.findIndex((p) => p._id === post._id);
+		posts[index] = { ...post };
+
 		this.setState({
+			allPosts: posts,
 			didEditPost: true,
 			successMessage: "Post updated successfully",
 		});
@@ -105,6 +110,7 @@ class HomeFeed extends Component {
 						inEditMode={inEditMode}
 						setEditMode={this.setEditMode}
 						getAllPosts={this.getAllPosts}
+						getAllPostsAction={this.getAllPostsAction}
 					/>
 					{didDeletePost || didCreatePost || didEditPost ? (
 						<SuccessMessage

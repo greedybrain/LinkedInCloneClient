@@ -1,6 +1,7 @@
-div.comment_and_options {
+div.reply_and_options {
 	position: relative;
-	li.comment_wrapper {
+	width: 455px;
+	li.reply_wrapper {
 		display: flex;
 		margin-top: 15px;
 		position: relative;
@@ -15,12 +16,12 @@ div.comment_and_options {
 		}
 		div.helper {
 			width: 100%;
-			div.comment {
+			div.reply {
 				// width: 100%;
 				background-color: rgba(238, 238, 238, 0.705);
 				border-radius: 0 10px 10px 10px;
 				padding: 10px;
-				div.comment_header {
+				div.reply_header {
 					display: flex;
 					justify-content: space-between;
 
@@ -53,13 +54,13 @@ div.comment_and_options {
 					}
 				}
 
-				div.comment_body {
+				div.reply_body {
 					font-size: 0.85rem;
 					color: #000000c2;
 					margin-top: 5px;
 				}
 			}
-			div.comment_footer {
+			div.reply_footer {
 				span {
 					margin-left: 10px;
 

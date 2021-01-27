@@ -1,5 +1,5 @@
 //! Core Modules
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 //! NPM Modules
 import moment from "moment";
@@ -21,8 +21,11 @@ const Post = ({
 	deletePostAction,
 	getCurrentPost,
 	setEditMode,
+	getAllPostsAction,
 }) => {
 	const [showUserPostOptions, setShowUserPostOptions] = useState(false);
+	const [showCommentOptions, setShowCommentOptions] = useState(false);
+	const [didComment, setDidComment] = useState(false);
 	const [showLikes, setShowLikes] = useState(false);
 	const [liked, setLiked] = useState(false);
 	const [showCommentForm, setShowCommentForm] = useState(false);
@@ -35,6 +38,14 @@ const Post = ({
 
 	const handleUserOptionsLeave = () => {
 		setShowUserPostOptions(false);
+	};
+
+	const toggleUserCommentOptions = () => {
+		setShowCommentOptions(!showCommentOptions);
+	};
+
+	const handleUserCommentOptionsLeave = () => {
+		setShowCommentForm(false);
 	};
 
 	const handleShowCommentArea = () => {
@@ -58,6 +69,10 @@ const Post = ({
 			setLiked(false);
 		}
 	};
+
+	useEffect(() => {
+		getAllPostsAction();
+	}, [liked, didComment]);
 
 	return (
 		<>
@@ -154,11 +169,18 @@ const Post = ({
 								<div className='label'>Send</div>
 							</div>
 						</div>
-						{showCommentForm ? <CommentForm post={post} /> : null}
-						{showComments ? <CommentSection post={post} /> : null}
+						{showCommentForm ? (
+							<CommentForm post={post} setDidComment={setDidComment} />
+						) : null}
+						{showComments ? (
+							<CommentSection
+								post={post}
+								toggleUserCommentOptions={toggleUserCommentOptions}
+								handleUserCommentOptionsLeave={handleUserCommentOptionsLeave}
+							/>
+						) : null}
 					</div>
 				</div>
-
 				{showUserPostOptions ? (
 					user._id === post.user._id ? (
 						<UserPostOptions

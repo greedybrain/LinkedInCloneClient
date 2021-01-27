@@ -27,7 +27,7 @@ class CommentForm extends Component {
 
 	handleSubmit = async (event) => {
 		event.preventDefault();
-		const { post } = this.props;
+		const { post, setDidComment } = this.props;
 		const { content } = this.state;
 		const { token } = localStorage;
 		try {
@@ -40,6 +40,10 @@ class CommentForm extends Component {
 		} catch (error) {
 			console.log(error.message);
 		}
+		setDidComment(true);
+		setTimeout(() => {
+			setDidComment(false);
+		}, 500);
 		event.target.reset();
 		this.setState({
 			content: "",
