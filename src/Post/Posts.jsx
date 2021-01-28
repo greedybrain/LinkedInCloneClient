@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import Post from "./Post";
+import faker from "faker";
 
 const Posts = ({
 	allPosts,
@@ -17,9 +18,7 @@ const Posts = ({
 				return (
 					<Fragment key={post._id}>
 						<Post
-							image={
-								"https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png"
-							}
+							faker={faker}
 							post={post}
 							deletePostAction={deletePostAction}
 							inEditMode={inEditMode}

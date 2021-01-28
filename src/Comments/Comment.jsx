@@ -4,21 +4,26 @@ import UserContext from "../Context/userContext";
 import "../Styles/Comment.css";
 import UserCommentOptions from "./UserCommentOptions";
 import Replies from "./Replies";
+import ReplyForm from "./ReplyForm";
+import faker from "faker";
 
 class Comment extends Component {
 	state = {
 		shouldShowCommentOptions: false,
+		shouldShowReplyForm: false,
 	};
 
 	getStatePropsContext = () => {
 		const { allUsers } = this.context.get;
-		const { shouldShowCommentOptions } = this.state;
-		const { comment, post } = this.props;
+		const { shouldShowCommentOptions, shouldShowReplyForm } = this.state;
+		const { comment, post, setDidReply } = this.props;
 		return {
 			allUsers,
 			shouldShowCommentOptions,
 			comment,
 			post,
+			shouldShowReplyForm,
+			setDidReply,
 		};
 	};
 
@@ -35,6 +40,12 @@ class Comment extends Component {
 		}));
 	};
 
+	toggleReplyForm = () => {
+		this.setState((prevState) => ({
+			shouldShowReplyForm: !prevState.shouldShowReplyForm,
+		}));
+	};
+
 	handleCommentOptionsLeave = () => {
 		this.setState({
 			shouldShowCommentOptions: false,
@@ -46,15 +57,14 @@ class Comment extends Component {
 			comment,
 			shouldShowCommentOptions,
 			post,
+			shouldShowReplyForm,
+			setDidReply,
 		} = this.getStatePropsContext();
 		return (
 			<div className='comment_and_options'>
 				<li className='comment_wrapper'>
 					<div className='user_image'>
-						<img
-							src='https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png'
-							alt='null'
-						/>
+						<img src={faker.random.image()} alt='null' />
 					</div>
 					<div className='helper'>
 						<div className='comment'>
@@ -82,10 +92,21 @@ class Comment extends Component {
 						<div className='comment_footer'>
 							<span className='like'>Like</span>
 							<span className='pipe'>|</span>
-							<span className='reply'>Reply</span>
+							<span className='reply' onClick={this.toggleReplyForm}>
+								Reply
+							</span>
 						</div>
 					</div>
 				</li>
+				{shouldShowReplyForm ? (
+					<ReplyForm
+						getCommentUser={this.getCommentUser}
+						setDidReply={setDidReply}
+						post={post}
+						comment={comment}
+						toggleReplyForm={this.toggleReplyForm}
+					/>
+				) : null}
 				<Replies post={post} replies={comment.replies} />
 				{shouldShowCommentOptions ? (
 					<UserCommentOptions

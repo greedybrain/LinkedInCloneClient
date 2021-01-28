@@ -66,7 +66,7 @@ class CreatePostPopup extends Component {
 			},
 		};
 		const { actions, get } = this.context;
-		const { user } = get;
+		const { user, avatar } = get;
 		const { toggleCreatePostPopup } = actions;
 		return (
 			<div className='create_post_popup animate__animated animate__fadeIn animate__faster'>
@@ -79,7 +79,7 @@ class CreatePostPopup extends Component {
 					</div>
 					<div className='body'>
 						<div className='body_head'>
-							<UserImage styles={userImage} />
+							<UserImage styles={userImage} avatar={avatar} />
 							<div className='name_and_privacy'>
 								<div className='name'>{user.name}</div>
 								<div className='privacy'>

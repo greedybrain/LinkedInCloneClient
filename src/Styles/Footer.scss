@@ -1,0 +1,26 @@
+div.footer_wrapper {
+	padding: 10px;
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+
+		li {
+			padding: 5px;
+			font-size: 0.7rem;
+			text-align: center;
+			color: #00000099;
+		}
+	}
+	p {
+		font-size: 0.7rem;
+		color: #0a66c2;
+		text-align: center;
+		margin-top: 10px;
+		font-weight: 600;
+
+		span {
+			color: #00000099;
+		}
+	}
+}

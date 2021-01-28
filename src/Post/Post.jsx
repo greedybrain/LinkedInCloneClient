@@ -22,15 +22,17 @@ const Post = ({
 	getCurrentPost,
 	setEditMode,
 	getAllPostsAction,
+	faker,
 }) => {
 	const [showUserPostOptions, setShowUserPostOptions] = useState(false);
 	const [showCommentOptions, setShowCommentOptions] = useState(false);
 	const [didComment, setDidComment] = useState(false);
+	const [didReply, setDidReply] = useState(false);
 	const [showLikes, setShowLikes] = useState(false);
 	const [liked, setLiked] = useState(false);
 	const [showCommentForm, setShowCommentForm] = useState(false);
 	const [showComments, setShowComments] = useState(false);
-	const { user } = useContext(UserContext).get;
+	const { user, avatar } = useContext(UserContext).get;
 
 	const toggleUserPostOptions = () => {
 		setShowUserPostOptions(!showUserPostOptions);
@@ -55,24 +57,24 @@ const Post = ({
 
 	const userDidLike = () => {
 		const like = post.likes.find((like) => like.user === user._id);
-		if (like) return !!like;
+		if (like) return true;
 	};
 
 	const handlePostLike = async () => {
 		if (!userDidLike()) {
 			const like = await likePostService(post);
 			console.log(like, "POST LIKED");
-			setLiked(true);
+			setLiked(userDidLike());
 		} else {
 			const unlike = await unlikePostService(post);
 			console.log(unlike, "POST UNLIKED");
-			setLiked(false);
+			setLiked(!userDidLike());
 		}
 	};
 
 	useEffect(() => {
 		getAllPostsAction();
-	}, [liked, didComment]);
+	}, [liked, didComment, didReply]);
 
 	return (
 		<>
@@ -82,7 +84,7 @@ const Post = ({
 						<div className='post_header'>
 							<div className='header_left'>
 								<div className='image_wrapper'>
-									<img src={image} alt='profile' />
+									<img src={faker.random.image()} alt='profile' />
 								</div>
 							</div>
 							<div className='header_right'>
@@ -177,6 +179,7 @@ const Post = ({
 								post={post}
 								toggleUserCommentOptions={toggleUserCommentOptions}
 								handleUserCommentOptionsLeave={handleUserCommentOptionsLeave}
+								setDidReply={setDidReply}
 							/>
 						) : null}
 					</div>

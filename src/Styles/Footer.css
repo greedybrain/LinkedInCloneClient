@@ -1,0 +1,33 @@
+div.footer_wrapper {
+  padding: 10px;
+}
+
+div.footer_wrapper ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+div.footer_wrapper ul li {
+  padding: 5px;
+  font-size: 0.7rem;
+  text-align: center;
+  color: #00000099;
+}
+
+div.footer_wrapper p {
+  font-size: 0.7rem;
+  color: #0a66c2;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+div.footer_wrapper p span {
+  color: #00000099;
+}

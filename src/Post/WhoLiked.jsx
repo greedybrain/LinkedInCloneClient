@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Icon from "../Common/Icon";
 import UserContext from "../Context/userContext";
 import "../Styles/WhoLiked.css";
+import faker from "faker";
 
 class WhoLiked extends Component {
 	getUsersWhoLiked = () => {
@@ -38,10 +39,7 @@ class WhoLiked extends Component {
 								return (
 									<li key={user._id}>
 										<div className='user_image'>
-											<img
-												src='https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png'
-												alt='null'
-											/>
+											<img src={faker.random.image()} alt='null' />
 											<Icon name='fas fa-thumbs-up' />
 										</div>
 										<div className='name_headline'>

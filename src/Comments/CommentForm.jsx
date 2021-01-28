@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../Styles/CommentForm.css";
 import axios from "../utils/axios_configs";
+import faker from "faker";
 
 class CommentForm extends Component {
 	state = {
@@ -13,6 +14,8 @@ class CommentForm extends Component {
 		this.setState({
 			[event.target.name]: event.target.value,
 		});
+		if (event.target.value.length === 0)
+			this.setState({ showPostButton: false });
 		if (event.target.value.length > 0) {
 			this.setState({
 				showPostButton: true,
@@ -57,10 +60,7 @@ class CommentForm extends Component {
 					<form onSubmit={this.handleSubmit}>
 						<div className='image_comment'>
 							<div className='user_image'>
-								<img
-									src='https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png'
-									alt='null'
-								/>
+								<img src={faker.random.image()} alt='null' />
 							</div>
 							<div
 								className='comment_field'

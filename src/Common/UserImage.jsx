@@ -1,18 +1,12 @@
 //! Core Modules
 import React from "react";
 
-//! Cutome Modules/ Components
+//! Cutom Modules/ Components
 
-const UserImage = ({ styles }) => {
+const UserImage = ({ styles, avatar }) => {
 	return (
 		<div className='image_wrapper' style={styles.imageWrapper}>
-			<img
-				src={
-					"https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png"
-				}
-				alt='user avatar'
-				style={styles.imageWrapper.image}
-			/>
+			<img src={avatar} alt='user avatar' style={styles.imageWrapper.image} />
 		</div>
 	);
 };

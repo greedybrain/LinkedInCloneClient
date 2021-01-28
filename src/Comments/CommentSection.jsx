@@ -7,6 +7,7 @@ class CommentSection extends Component {
 			post,
 			handleUserCommentOptionsLeave,
 			toggleUserCommentOptions,
+			setDidReply,
 		} = this.props;
 		return (
 			<div className='comment_section_wrapper'>
@@ -21,6 +22,7 @@ class CommentSection extends Component {
 									comment={comment}
 									handleUserCommentOptionsLeave={handleUserCommentOptionsLeave}
 									toggleUserCommentOptions={toggleUserCommentOptions}
+									setDidReply={setDidReply}
 								/>
 							);
 						})}

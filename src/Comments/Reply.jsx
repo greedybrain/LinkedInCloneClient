@@ -3,6 +3,7 @@ import moment from "moment";
 import UserContext from "../Context/userContext";
 import "../Styles/Reply.css";
 import UserCommentOptions from "./UserCommentOptions";
+import faker from "faker";
 
 class Reply extends Component {
 	state = {
@@ -46,10 +47,7 @@ class Reply extends Component {
 			<div className='reply_and_options'>
 				<li className='reply_wrapper'>
 					<div className='user_image'>
-						<img
-							src='https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png'
-							alt='null'
-						/>
+						<img src={faker.random.image()} alt='null' />
 					</div>
 					<div className='helper'>
 						<div className='reply'>

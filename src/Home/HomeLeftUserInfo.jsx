@@ -1,5 +1,4 @@
 //! Core Modules
-//! Core Modules
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
@@ -10,7 +9,7 @@ import coverImage from "../Images/cover_image.jpeg";
 import "../Styles/HomeLeftUserInfo.css";
 
 const HomeLeftUserInfo = () => {
-	const { user } = useContext(UserContext).get;
+	const { user, avatar } = useContext(UserContext).get;
 
 	return (
 		<div className='home_left_user_info_wrapper'>
@@ -18,12 +17,7 @@ const HomeLeftUserInfo = () => {
 				<img src={coverImage} alt='cover pic' />
 			</div>
 			<div className='user_image_wrapper'>
-				<img
-					src={
-						"https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png"
-					}
-					alt='naya willis'
-				/>
+				<img src={avatar} alt='naya willis' />
 			</div>
 			<div className='user_name'>
 				<Link to='#'>{user.name}</Link>

@@ -18,12 +18,12 @@ const userImage = {
 
 const UserTab = () => {
 	const { actions, get } = useContext(UserContext);
-	const { showMePopup } = get;
+	const { showMePopup, avatar } = get;
 	const { toggleMePopup, handlePopupLeave } = actions;
 
 	return (
 		<div className='user_tab_wrapper' onClick={toggleMePopup}>
-			<UserImage styles={userImage} />
+			<UserImage styles={userImage} avatar={avatar} />
 			<div className='user_tab_lower'>
 				<div className='me'>Me</div>
 				<div className='drop_down_arrow'>&#9662;</div>
@@ -32,5 +32,6 @@ const UserTab = () => {
 		</div>
 	);
 };
+
 
 export default UserTab;

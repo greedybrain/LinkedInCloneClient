@@ -14,7 +14,7 @@ import "../Styles/SuccessMessage.css";
 
 class HomeFeed extends Component {
 	state = {
-		allPosts: [],
+		allPosts: [...this.context.get.allPosts],
 		didDeletePost: false,
 		didCreatePost: false,
 		didEditPost: false,
@@ -30,9 +30,9 @@ class HomeFeed extends Component {
 		this.setState({ allPosts: data });
 	};
 
-	componentDidMount = async () => {
-		await this.getAllPostsAction();
-	};
+	// componentDidMount() {
+	// 	this.getAllPostsAction();
+	// }
 
 	// componentDidUpdate = async (prevProps, prevState, snapshot) => {
 	// 	if (this.state.allPosts !== prevState.allPosts) {

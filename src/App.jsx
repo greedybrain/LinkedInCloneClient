@@ -2,11 +2,13 @@
 import React, { Component } from "react";
 
 //! NPM Modules
+import faker from "faker";
 
 //! Custom Modules/ Components
 import Header from "./Header/Header";
 import Routes from "./Routes";
 import UserContext from "./Context/userContext";
+import getAllPostsService from "./services/get_all_posts";
 import getAllUsersService from "./services/get_users";
 import getCurrentUserService from "./services/get_current_user";
 import logoutService from "./services/logout";
@@ -16,13 +18,23 @@ class App extends Component {
 		loggedIn: false,
 		user: {},
 		allUsers: [],
+		allPosts: [],
 		showMePopup: false,
 		showCreatePostPopup: false,
+		avatar: faker.random.image(),
 	};
 
 	componentDidMount = async () => {
+		await this.getAllPostsAction();
 		await this.getCurrentUserAction();
 		await this.getAllUsersAction();
+	};
+
+	getAllPostsAction = async () => {
+		const data = await getAllPostsService();
+		if (!data) return;
+		data.reverse();
+		this.setState({ allPosts: data });
 	};
 
 	getAllUsersAction = async () => {
@@ -86,6 +98,8 @@ class App extends Component {
 			showMePopup,
 			showCreatePostPopup,
 			showUserPostOptions,
+			allPosts,
+			avatar,
 		} = this.state;
 		const value = {
 			actions: {
@@ -103,6 +117,8 @@ class App extends Component {
 				showMePopup,
 				showCreatePostPopup,
 				showUserPostOptions,
+				allPosts,
+				avatar,
 			},
 		};
 		return (

@@ -1,0 +1,95 @@
+div.reply_form_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 15px;
+}
+
+div.reply_form_wrapper div.reply_form {
+  width: 455px;
+}
+
+div.reply_form_wrapper div.reply_form form {
+  width: 100%;
+  height: 100%;
+}
+
+div.reply_form_wrapper div.reply_form form div.image_reply {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+div.reply_form_wrapper div.reply_form form div.image_reply div.user_image {
+  width: 40px;
+  position: absolute;
+  top: 3px;
+  left: 0;
+}
+
+div.reply_form_wrapper div.reply_form form div.image_reply div.user_image img {
+  border-radius: 50%;
+}
+
+div.reply_form_wrapper div.reply_form form div.image_reply div.reply_field {
+  width: 90%;
+  margin-left: 45px;
+}
+
+div.reply_form_wrapper div.reply_form form div.image_reply div.reply_field textarea {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #dadada;
+  resize: none;
+  outline: none;
+}
+
+div.reply_form_wrapper div.reply_form form div.image_reply div.reply_field textarea:focus {
+  border: 2px solid #dadada;
+}
+
+div.reply_form_wrapper div.reply_form form div.image_reply div.reply_field textarea::-webkit-input-placeholder {
+  color: #000;
+  font-weight: 700;
+}
+
+div.reply_form_wrapper div.reply_form form div.image_reply div.reply_field textarea:-ms-input-placeholder {
+  color: #000;
+  font-weight: 700;
+}
+
+div.reply_form_wrapper div.reply_form form div.image_reply div.reply_field textarea::-ms-input-placeholder {
+  color: #000;
+  font-weight: 700;
+}
+
+div.reply_form_wrapper div.reply_form form div.image_reply div.reply_field textarea::placeholder {
+  color: #000;
+  font-weight: 700;
+}
+
+div.reply_form_wrapper div.reply_form form div.submit_btn {
+  width: 55px;
+  margin: 10px 0 0 45px;
+  border-radius: 40px;
+  background-color: #0a66c2;
+}
+
+div.reply_form_wrapper div.reply_form form div.submit_btn button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  color: #fff;
+}
